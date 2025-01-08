@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 18% 12%;
+    --card: 0 0% 98%;
+    --card-foreground: 240 18% 12%;
+    --popover: 0 0% 92%;
+    --popover-foreground: 240 18% 12%;
+    --primary: 193 100% 20%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 310 52% 40%;
+    --secondary-foreground: 240 9% 98%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 245 18% 24%;
+    --accent: 69 92% 51%;
+    --accent-foreground: 0 0% 25%;
+    --destructive: 359 100% 61%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 92%;
+    --input: 0 0% 92%;
+    --ring: 180 65% 38%;
+    --chart-1: 190 41% 50%;
+    --chart-2: 318 86% 43%;
+    --chart-3: 18 86% 43%;
+    --chart-4: 138 86% 43%;
+    --chart-5: 37 100% 65%;
+    --chart-6: 45 86% 50%;
+    --chart-7: 220 70% 60%;
+    --chart-8: 260 72% 55%;
+    --chart-9: 300 77% 50%;
+    --chart-10: 10 75% 60%;
+    --chart-11: 90 50% 45%;
+    --chart-12: 170 67% 47%;
+    --chart-13: 200 53% 52%;
+    --chart-14: 28 95% 55%;
+    --chart-15: 345 65% 47%;
+    --radius: 1rem;
+    --swiper-navigation-color: #ff00a2;
+  }
+
+  .dark {
+    --background: 240 18% 12%;
+    --foreground: 0 0% 100%;
+    --card: 240 18% 12%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 188 94% 50%;
+    --primary-foreground: 240 18% 12%;
+    --secondary: 322 100% 50%;
+    --secondary-foreground: 240 18% 12%;
+    --muted: 0 0% 25%;
+    --muted-foreground: 0 0% 96%;
+    --accent: 66 25% 50%;
+    --accent-foreground: 0 0% 96%;
+    --destructive: 359 100% 38%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 32%;
+    --input: 0 0% 24%;
+    --ring: 180 65% 28%;
+    --chart-1: 188 94% 50%;
+    --chart-2: 318 86% 43%;
+    --chart-3: 18 86% 43%;
+    --chart-4: 138 86% 43%;
+    --chart-5: 37 100% 65%;
+    --chart-6: 45 86% 50%;
+    --chart-7: 220 70% 60%;
+    --chart-8: 260 72% 55%;
+    --chart-9: 300 77% 50%;
+    --chart-10: 10 75% 60%;
+    --chart-11: 90 50% 45%;
+    --chart-12: 170 67% 47%;
+    --chart-13: 200 53% 52%;
+    --chart-14: 28 95% 55%;
+    --chart-15: 345 65% 47%;
+    --swiper-navigation-color: #ff00a2;
+  }
+}
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background font-sans text-foreground;
+  }
+  .container {
+    @apply mx-auto px-4;
+  }
+  h1 {
+    @apply mb-6 text-left text-3xl sm:text-4xl md:text-5xl text-primary font-extrabold;
+  }
+  h2 {
+    @apply text-3xl font-bold md:text-3xl lg:text-4xl;
+  }
+  h4 {
+    @apply mt-2 underline;
+  }
+  p {
+    @apply mt-2;
+  }
+  .wp-block-list {
+    @apply list-disc ml-6;
+  }
+}

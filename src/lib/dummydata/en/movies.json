@@ -1,0 +1,427 @@
+[
+    {
+        "title": "28 Weeks Later",
+        "date": [
+            "2015-05-17T19:47:00Z",
+            "2015-05-17T19:45:22Z"
+        ],
+        "duration": 5796,
+        "user": "user2",
+        "summary": "The inhabitants of the British Isles have lost their battle against the onslaught of disease, as the deadly rage virus has killed every citizen there. Six months later, a group of Americans dare to set foot on the isles, convinced the danger has come and gone. But it soon becomes all too clear that the scourge continues to live, waiting to pounce on its next victims.",
+        "genres": [
+            "Horror",
+            "Thriller",
+            "Science Fiction"
+        ],
+        "image": "/PN7yjmQdmG0J62jsrtmrPi8ezK.jpg"
+    },
+    {
+        "title": "Auslöschung",
+        "date": [
+            "2018-03-16T21:15:51Z",
+            "2018-03-16T19:19:07Z",
+            "2018-03-16T19:15:30Z",
+            "2018-03-16T17:14:16Z"
+        ],
+        "duration": 6926,
+        "user": "user1",
+        "summary": "A biologist signs up for a dangerous, secret expedition into a mysterious zone where the laws of nature don't apply.",
+        "genres": [
+            "Science Fiction",
+            "Horror"
+        ],
+        "image": "/vYs1YGalB8IEXxdxDtqkL0vfHjO.jpg"
+    },
+    {
+        "title": "Banksy – Exit Through the Gift Shop",
+        "date": [
+            "2015-03-04T21:29:37Z",
+            "2015-03-04T21:18:39Z"
+        ],
+        "duration": 4878,
+        "user": "user2",
+        "summary": "Banksy is a graffiti artist with a global reputation whose work can be seen on walls from post-hurricane New Orleans to the separation barrier on the Palestinian West Bank. Fiercely guarding his anonymity to avoid prosecution, Banksy has so far resisted all attempts to be captured on film. Exit Through the Gift Shop tells the incredible true story of how an eccentric French shop keeper turned documentary maker attempted to locate and befriend Banksy, only to have the artist turn the camera back on its owner.",
+        "genres": [
+            "Documentary"
+        ],
+        "image": "/yGtoR1fi3e2xU7N91cb2DKJjtyL.jpg"
+    },
+    {
+        "title": "Beach Rats",
+        "date": [
+            "2019-04-08T20:46:38Z",
+            "2018-07-08T19:15:33Z"
+        ],
+        "duration": 4813,
+        "user": "user1",
+        "summary": "On the outskirts of Brooklyn, Frankie, an aimless teenager, suffocates under the oppressive glare cast by his family and a toxic group of delinquent friends. Struggling with his own identity, Frankie begins to scour hookup sites for older men.",
+        "genres": [
+            "Drama",
+            "Romance"
+        ],
+        "image": "/92YTUyx7PDqgoPcGF9OaT8w6R61.jpg"
+    },
+    {
+        "title": "Bird Box – Schließe deine Augen",
+        "date": [
+            "2019-01-04T21:32:41Z"
+        ],
+        "duration": 7034,
+        "user": "user1",
+        "summary": "Five years after an ominous unseen presence drives most of society to suicide, a survivor and her two children make a desperate bid to reach safety.",
+        "genres": [
+            "Thriller",
+            "Drama",
+            "Science Fiction"
+        ],
+        "image": "/pDKFL1zcHzEpmz4MJA5JJnRbJeD.jpg"
+    },
+    {
+        "title": "Black Mirror: Bandersnatch",
+        "date": [
+            "2019-01-22T20:16:36Z",
+            "2019-01-22T19:41:36Z",
+            "2019-01-22T18:32:49Z",
+            "2019-01-21T20:07:08Z"
+        ],
+        "duration": 4625,
+        "user": "user1",
+        "summary": "In 1984, a young programmer begins to question reality as he adapts a dark fantasy novel into a video game. A mind-bending tale with multiple endings.",
+        "genres": [
+            "Science Fiction",
+            "Mystery",
+            "Drama",
+            "Thriller",
+            "TV Movie"
+        ],
+        "image": "/1qSo3zT9XAQYcbZaLBn46mTeTHZ.jpg"
+    },
+    {
+        "title": "Call Me by Your Name",
+        "date": [
+            "2020-05-09T21:31:45Z",
+            "2020-05-09T20:23:02Z"
+        ],
+        "duration": 5037,
+        "user": "user1",
+        "summary": "In 1980s Italy, a relationship begins between seventeen-year-old teenage Elio and the older adult man hired as his father's research assistant.",
+        "genres": [
+            "Romance",
+            "Drama"
+        ],
+        "image": "/zvOJawrnmgK0sL293mOXOdLvTXQ.jpg"
+    },
+    {
+        "title": "Das Dilemma mit den sozialen Medien",
+        "date": [
+            "2020-09-17T09:41:58Z",
+            "2020-09-16T19:16:54Z"
+        ],
+        "duration": 3141,
+        "user": "user1",
+        "summary": "This documentary-drama hybrid explores the dangerous human impact of social networking, with tech experts sounding the alarm on their own creations.",
+        "genres": [
+            "Documentary",
+            "Drama"
+        ],
+        "image": "/9plj0RR5LJOQQ77ucRZzi88uRzY.jpg"
+    },
+    {
+        "title": "Der große Gatsby",
+        "date": [
+            "2015-05-21T19:04:43Z"
+        ],
+        "duration": 8166,
+        "user": "user2",
+        "summary": "An adaptation of F. Scott Fitzgerald's Long Island-set novel, where Midwesterner Nick Carraway is lured into the lavish world of his neighbor, Jay Gatsby. Soon enough, however, Carraway will see through the cracks of Gatsby's nouveau riche existence, where obsession, madness, and tragedy await.",
+        "genres": [
+            "Drama",
+            "Romance"
+        ],
+        "image": "/tb440cwQMRoVHnhYJlzlxfv1ikm.jpg"
+    },
+    {
+        "title": "Dune: Der Wüstenplanet",
+        "date": [
+            "2021-05-22T22:43:42Z",
+            "2021-05-22T22:42:07Z",
+            "2021-05-22T20:04:42Z"
+        ],
+        "duration": 8522,
+        "user": "user1",
+        "summary": "In the year 10,191, the world is at war for control of the desert planet Arrakis—the only place where the space-travel substance Melange 'Spice' can be found. But when one leader gives up control, it's only so he can stage a coup with some unsavory characters.",
+        "genres": [
+            "Action",
+            "Science Fiction",
+            "Adventure"
+        ],
+        "image": "/5wJ2tckpvwcxGCAgZiccodwEJpf.jpg"
+    },
+    {
+        "title": "El Camino: Ein „Breaking Bad“-Film",
+        "date": [
+            "2019-11-29T21:43:50Z",
+            "2019-11-29T20:47:35Z",
+            "2019-11-29T19:55:48Z"
+        ],
+        "duration": 4715,
+        "user": "user1",
+        "summary": "In the wake of his dramatic escape from captivity, Jesse Pinkman must come to terms with his past in order to forge some kind of future.",
+        "genres": [
+            "Crime",
+            "Drama",
+            "Thriller",
+            "Action"
+        ],
+        "image": "/yzpZVgaTZzDrAP1yVeCbKZH9jmA.jpg"
+    },
+    {
+        "title": "God's Own Country",
+        "date": [
+            "2020-05-09T18:39:37Z"
+        ],
+        "duration": 5698,
+        "user": "user1",
+        "summary": "A young farmer in rural Yorkshire numbs his daily frustrations with binge drinking and casual sex, until the arrival of a Romanian migrant worker.",
+        "genres": [
+            "Romance",
+            "Drama"
+        ],
+        "image": "/R2cpJHKCY0kQaaBV29tM8QVJ8B.jpg"
+    },
+    {
+        "title": "Guardians of the Galaxy",
+        "date": [
+            "2016-09-30T20:46:09Z"
+        ],
+        "duration": 1672,
+        "user": "user2",
+        "summary": "Light years from Earth, 26 years after being abducted, Peter Quill finds himself the prime target of a manhunt after discovering an orb wanted by Ronan the Accuser.",
+        "genres": [
+            "Action",
+            "Science Fiction",
+            "Adventure"
+        ],
+        "image": "/uLtVbjvS1O7gXL8lUOwsFOH4man.jpg"
+    },
+    {
+        "title": "How It Ends",
+        "date": [
+            "2018-07-21T21:16:03Z",
+            "2018-07-20T19:41:39Z"
+        ],
+        "duration": 6457,
+        "user": "user1",
+        "summary": "A desperate father tries to return home to his pregnant wife after a mysterious apocalyptic event turns everything to chaos.",
+        "genres": [
+            "Science Fiction",
+            "Thriller",
+            "Mystery",
+            "Action",
+            "Adventure"
+        ],
+        "image": "/qFPSiVDvhuL7E30r83R2ZxGQjWe.jpg"
+    },
+    {
+        "title": "Le Jeu – Nichts zu verbergen",
+        "date": [
+            "2019-11-24T20:03:48Z"
+        ],
+        "duration": 5321,
+        "user": "user1",
+        "summary": "To spice up a dinner party, old friends agree to share every private message that pops up on their phones -- with disastrous results.",
+        "genres": [
+            "Drama",
+            "Comedy"
+        ],
+        "image": "/ssqk7NKWIehsgo5IwpCQiFbHl8I.jpg"
+    },
+    {
+        "title": "Life",
+        "date": [
+            "2019-03-24T20:08:29Z",
+            "2019-03-24T19:56:49Z"
+        ],
+        "duration": 6255,
+        "user": "user1",
+        "summary": "The six-member crew of the International Space Station is tasked with studying a sample from Mars that may be the first proof of extra-terrestrial life, which proves more intelligent than ever expected.",
+        "genres": [
+            "Horror",
+            "Science Fiction",
+            "Mystery",
+            "Thriller"
+        ],
+        "image": "/jvUKejL9uZtI0yi2aoQZ2oykRTA.jpg"
+    },
+    {
+        "title": "Minimalism: A Documentary About the Important Things",
+        "date": [
+            "2018-10-03T15:06:05Z"
+        ],
+        "duration": 4638,
+        "user": "user1",
+        "summary": "How might your life be better with less? The popular simple-living duo The Minimalists examines the many flavors of minimalism by taking the audience inside the lives of minimalists from various walks of life.",
+        "genres": [
+            "Documentary"
+        ],
+        "image": "/zCQC3FgiFxg4amid5rWLVvguZlk.jpg"
+    },
+    {
+        "title": "Naked",
+        "date": [
+            "2021-04-03T20:03:28Z"
+        ],
+        "duration": 5522,
+        "user": "user1",
+        "summary": "Following a wild night out with his Best Man, Rob Anderson wakes up to find himself naked in an elevator on the morning of his wedding day and is forced to relive the morning over and over again.",
+        "genres": [
+            "Comedy"
+        ],
+        "image": "/fEESTsF49WwDEyt2Lih2LZU0jts.jpg"
+    },
+    {
+        "title": "OtherLife",
+        "date": [
+            "2017-11-17T21:46:33Z",
+            "2017-11-17T20:15:18Z"
+        ],
+        "duration": 5466,
+        "user": "user1",
+        "summary": "Ren Amari is the driven inventor of a revolutionary new drug. OtherLife expands the brain's sense of time and creates virtual reality directly in the user's mind. With OtherLife, mere seconds in real life feel like hours or days of exciting adventures. As Ren and her colleagues race around the clock to launch OtherLife, the government muscles in to use the drugs as a radical solution to prison overcrowding. They will create virtual cells where criminals serve long sentences in just minutes of real time. When Ren resists, she finds herself an unwilling guinea pig trapped in a prison cell in her mind. She must escape before she descends into madness, and then regain control of OtherLife before others suffer the same fate.",
+        "genres": [
+            "Science Fiction",
+            "Crime",
+            "Mystery"
+        ],
+        "image": "/arb8T0YFfLT5cUVIJPTMoHbmk12.jpg"
+    },
+    {
+        "title": "Parallelwelten",
+        "date": [
+            "2019-04-18T21:06:42Z",
+            "2019-04-18T19:30:46Z",
+            "2019-04-03T20:19:42Z",
+            "2019-03-27T19:08:37Z",
+            "2019-03-27T19:08:37Z"
+        ],
+        "duration": 10625,
+        "user": "user1",
+        "summary": "During a mysterious thunderstorm, Vera, a young mother, manages to save a life in danger, but her good deed causes a disturbing chain of unexpected consequences.",
+        "genres": [
+            "Thriller",
+            "Drama",
+            "Mystery",
+            "Fantasy"
+        ],
+        "image": "/vU43BQihl4lcLWHqb3NdpsDL32U.jpg"
+    },
+    {
+        "title": "Plötzlich Türke",
+        "date": [
+            "2018-02-09T22:11:01Z"
+        ],
+        "duration": 4946,
+        "user": "user1",
+        "summary": "",
+        "genres": [
+            "TV Movie",
+            "Comedy"
+        ],
+        "image": "/Aq3Nw5amLgk7lQ4OtsAociAzlc4.jpg"
+    },
+    {
+        "title": "Red Dot",
+        "date": [
+            "2021-02-27T21:01:16Z"
+        ],
+        "duration": 4966,
+        "user": "user1",
+        "summary": "On a hiking trip to rekindle their marriage, a couple find themselves fleeing for their lives in the unforgiving wilderness from an unknown shooter.",
+        "genres": [
+            "Thriller",
+            "Horror"
+        ],
+        "image": "/7KL4yJ4JsbtS1BNRilUApLvMnc5.jpg"
+    },
+    {
+        "title": "Reservoir Dogs",
+        "date": [
+            "2019-08-29T20:07:44Z"
+        ],
+        "duration": 1251,
+        "user": "user1",
+        "summary": "A botched robbery indicates a police informant, and the pressure mounts in the aftermath at a warehouse. Crime begets violence as the survivors -- veteran Mr. White, newcomer Mr. Orange, psychopathic parolee Mr. Blonde, bickering weasel Mr. Pink and Nice Guy Eddie -- unravel.",
+        "genres": [
+            "Crime",
+            "Thriller"
+        ],
+        "image": "/jqFjgNnxpXIXWuPsyfqmcLXRo9p.jpg"
+    },
+    {
+        "title": "Shiny_Flakes: The Teenage Drug Lord",
+        "date": [
+            "2021-08-28T19:59:21Z"
+        ],
+        "duration": 5983,
+        "user": "user1",
+        "summary": "Max S. reveals how he built a drug empire from his childhood bedroom as a teen in the real story behind the series \"How to Sell Drugs Online (Fast).\"",
+        "genres": [
+            "Documentary",
+            "Crime"
+        ],
+        "image": "/z1UxwFCSCepPRosjOBVllfrs0PB.jpg"
+    },
+    {
+        "title": "Super 8",
+        "date": [
+            "2017-12-24T22:50:40Z",
+            "2017-12-24T22:49:36Z",
+            "2017-12-24T22:47:35Z",
+            "2017-12-24T22:47:22Z"
+        ],
+        "duration": 6224,
+        "user": "user1",
+        "summary": "In 1979 Ohio, several youngsters are making a zombie movie with a Super-8 camera. In the midst of filming, the friends witness a horrifying train derailment and are lucky to escape with their lives. They soon discover that the catastrophe was no accident, as a series of unexplained events and disappearances soon follows. Deputy Jackson Lamb, the father of one of the kids, searches for the terrifying truth behind the crash.",
+        "genres": [
+            "Thriller",
+            "Science Fiction",
+            "Mystery"
+        ],
+        "image": "/tQFwpwJg6Je7l6A8rgRZ8yefvdV.jpg"
+    },
+    {
+        "title": "Video Games: The Movie",
+        "date": [
+            "2015-03-09T08:59:18Z"
+        ],
+        "duration": 6069,
+        "user": "user2",
+        "summary": "From executive producer Zach Braff and director Jeremy Snead, \"Video Games: The Movie\" is an epic feature length documentary chronicling the meteoric rise of video games from nerd niche to multi-billion dollar industry. Narrated by Sean Astin and featuring in-depth interviews with the godfathers who started it all, the icons of game design, and the geek gurus who are leading us into the future, \"Video Games: The Movie\" is a celebration of gaming from Atari to Xbox and an eye-opening look at what lies ahead.",
+        "genres": [
+            "History",
+            "Documentary",
+            "Animation"
+        ],
+        "image": "/z3lw2NBdxhh2vfhDkZpHkAa0Tm8.jpg"
+    },
+    {
+        "title": "World War Z",
+        "date": [
+            "2019-02-07T19:11:51Z",
+            "2019-02-06T21:43:32Z",
+            "2019-02-05T22:02:59Z",
+            "2019-02-05T20:40:23Z"
+        ],
+        "duration": 6726,
+        "user": "user1",
+        "summary": "Life for former United Nations investigator Gerry Lane and his family seems content. Suddenly, the world is plagued by a mysterious infection turning whole human populations into rampaging mindless zombies. After barely escaping the chaos, Lane is persuaded to go on a mission to investigate this disease. What follows is a perilous trek around the world where Lane must brave horrific dangers and long odds to find answers before human civilization falls.",
+        "genres": [
+            "Action",
+            "Drama",
+            "Horror",
+            "Science Fiction",
+            "Thriller"
+        ],
+        "image": "/kg2FOT2Oe5PSCgs3L4vLel6B7ck.jpg"
+    }
+]

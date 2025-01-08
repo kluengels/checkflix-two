@@ -1,0 +1,401 @@
+{
+  "HomePage": {
+    "title": "Was Netflix vor dir verbirgt",
+
+    "Features": {
+      "calender": "An welchen Tagen du am meisten schaust",
+      "genres": "Genres, die du magst",
+      "movies": "Filme, die du gesehen hast",
+      "shows": "Deine Top-Serien",
+      "time": "Nutzung im Laufe der Zeit",
+      "title": "Statistiken & Analysen",
+      "totaltime": "Gesamte Wiedergabezeit"
+    },
+    "Tutorial": {
+      "step1": {
+        "button": "Fordere deine Daten bei Netflix an",
+        "description": "Bei Netflix kannst du deine personenbezogenen Daten <link>in deinen Kontoeinstellungen</link> herunterladen. Klicke dazu auf den Button auf der verlinkten Seite. Du wirst dann gebeten, die Anfrage per E-Mail zu bestätigen. Sobald Netflix eine Datei mit all deinen Daten generiert hast, bekommst du eine zweite Mail. Das kann ein paar Stunden oder sogar Tage dauern.",
+        "title": "Daten anfordern"
+      },
+      "step2": {
+        "description": "Folge den Anweisungen in der E-Mail von Netflix, um deine Daten herunterzuladen. Du bekommst eine Zip-Datei namens <highlight1></highlight1>. Speicher die Datei lokal auf deinem Gerät. Optional kannst du die Datei <highlight2></highlight2> aus dem Zip-Archiv extrahieren. Das ist die relevante Datei, die Checkflix für die Analysen braucht.",
+        "title": "Daten herunterladen"
+      },
+      "step3": {
+        "button": "Analyse starten",
+        "description": "Es ist alles vorbereitet! Klick auf den Button unten, um zu beginnen. Falls du deine persönlichen Netflix-Daten noch nicht erhalten hast, kannst du Checkflix auch mit einem Probe-Datensatz ausprobieren.",
+        "title": "Daten auswerten"
+      },
+      "title": "So geht's"
+    },
+    "buttons": {
+      "start": "Analyse starten",
+      "tutorial": "So geht's"
+    },
+    "subtitle": "Wenn du Netflix nutzt, hast du höchstwahrscheinlich viele Stunden oder sogar Tage auf der Plattform verbracht. Aber standardmäßig verrät dir die Streaming-Plattform nicht besonders viel über deine Sehgewohnheiten. Da kommt Checkflix ins Spiel: Das kostenlose Tool analysiert deine Netflix-Daten sicher auf deinem Gerät."
+  },
+  "Contact": {
+    "message": {
+      "label": "Deine Nachricht",
+      "maxlength": "Deine Nachricht darf höchsten {length} Zeichen lang ein.",
+      "minlength": "Deine Nachricht muss mindestens {length} Zeichen lang sein.",
+      "placeholder": "Deine Nachricht"
+    },
+    "phone": {
+      "trapped": "Leider konnte deine Anfrage nicht bearbeitet werden. Bitte versuche es später noch einmal."
+    },
+    "button": {
+      "pending": "Bitte warten...",
+      "submit": "Absenden"
+    },
+    "email": {
+      "invalid": "Bitte gib eine gültige E-Mail-Adresse ein.",
+      "label": "Deine E-Mail-Adresse",
+      "placeholder": "E-Mail"
+    },
+    "security": {
+      "description": "Bitte beantworte die folgende Frage, um zu beweisen, dass du kein Roboter bist.",
+      "invalid": "Sicherheitsfrage nicht richtig beantwortet",
+      "label": "Sicherheitsfrage",
+      "placeholder": "Hauptstadt von Frankreich",
+      "question": "Was ist die Hauptstadt von Frankreich?",
+      "required": "Bitte beantworte die Sicherheitsfrage."
+    },
+    "serverError": {
+      "generic": "Etwas ist schief gelaufen. Bitte versuche es später noch einmal.",
+      "submit": "Beim Absenden des Formulars ist ein Fehler aufgetreten. Bitte versuche es später noch einmal."
+    },
+    "subtitle": "Hast du Fragen, Anregungen oder Feedback? Ich freue mich darauf, von dir zu hören!",
+    "successContact": "Vielen Dank für deine Nachricht. Ich werde deine Anfrage so schnell wie möglich beantworten.",
+    "terms": {
+      "descriptionContact": "Mit dem Absenden dieses Formulars erklärst du dich damit einverstanden, dass die von dir angegebenen Informationen gemäß der <privacylink>Datenschutzerklärung</privacylink> gespeichert und verarbeitet werden.",
+      "label": "Einverständnis zur Datenverarbeitung",
+      "required": "Bitte gibt dein Einverständnis zur Datenverarbeitung."
+    },
+    "title": "Kontakt",
+    "username": {
+      "label": "Dein Name",
+      "maxlength": "Bitte gib nicht mehr als {length} Zeichen ein.",
+      "minlength": "Bitte gib mindestens {length} Zeichen ein.",
+      "placeholder": "Name"
+    }
+  },
+  "Dashboard": {
+    "calender": {
+      "description": "war der Tag im Jahr {activeYear}, an dem du am meisten Netflix geschaut hast.",
+      "minutes": "{count, plural, =1 {Minute} other {Minuten}}",
+      "rotate": "Grafik drehen"
+    },
+    "genres": {
+      "description": "aus {genreCount, plural, =1 { # Genre} other { # Genres}} gesehen.",
+      "descriptionHint": "Mehrfachzuordnungen sind möglich.",
+      "head": "Du hast",
+      "linkTextMovies": "Finde heraus, welche Filme du gesehen hast",
+      "linkTextTv": "Finde heraus, welche Serien du gesehen hast",
+      "title": "Genres",
+      "titleMovies": "{itemsCount, plural, =1 {Film} other {Filme}}",
+      "titleTv": "{itemsCount, plural, =1 {Serie} other {Serien}}"
+    },
+    "months": {
+      "descriptionAllYears": "Am meisten guckst du im",
+      "descriptionYear": "{activeYear} hast du am meisten geguckt im",
+      "hours": "Std.",
+      "total": "Gesamt"
+    },
+    "noData": {
+      "button": "Versuche es erneut mit einer anderen Datei",
+      "title": "Keine Daten gefunden"
+    },
+    "time": {
+      "chartLabel": "Std",
+      "description": "auf Netflix verbracht seit {firstMonth} {firstYear}.",
+      "head": "Du hast",
+      "inDays": "{count, plural, =1 {Das ist ein Tag!} other {Das sind {viewTimeDays} Tage!}}",
+      "title": "{viewTimeHours, plural, =1 {Stunde} other {Stunden}}"
+    },
+    "topSeries": {
+      "description": "mit {count, plural, =1 { # geguckter Stunde } other { # geguckten Stunden } }.",
+      "linkText": "Hier geht's zu allen Serien",
+      "title": "Dein absoluter Favorit ist"
+    },
+    "users": {
+      "description": "{count, plural, =1 {ist} other {sind}} mit deinem Netflix-Konto verknüpft.",
+      "resetselection": "Daten für alle Nuzter",
+      "title": "{count, plural, =1 {Nutzer} other {Nutzer}}"
+    },
+    "weekdays": {
+      "descriptionAllYears": "ist der Wochentag, an dem du am meisten streamst.",
+      "descriptionYear": "war der Wochentag im Jahr {activeYear}, an dem du am meisten gestreamt hast.",
+      "hours": "{count, plural, =1 {Std.} other {Std.}}",
+      "title": "Wochentags",
+      "total": "Gesamt"
+    },
+    "yearSelector": {
+      "allYears": "Alle Jahre",
+      "selectLabel": "Wähle ein Jahr",
+      "selectYear": "Wähle ein Jahr"
+    }
+  },
+  "Errors": {
+    "againButton": "Versuche es erneut",
+    "detailsError": "Das Abrufen von Zusatzinformationen ist fehlgeschlagen",
+    "excuse": "Entschuldigung, da ist etwas schief gelaufen",
+    "foto": "Foto",
+    "genreFetchError": "Das Abrufen der Genreliste ist fehlgeschlagen",
+    "homeButton": "Zurück zur Startseite",
+    "message": "Es ist ein Fehler aufgetreten",
+    "notfound": "Seite nicht gefunden",
+    "reportButton": "Melde den Fehler"
+  },
+  "Footer": {
+    "imprint": "Impressum",
+    "love": "made with <heart></heart> in Cologne",
+    "privacy": "Datenschutz"
+  },
+  "Grid": {
+    "about": "Worum ging es nochmal?",
+    "lastWatched": "Zuletzt angesehen am ",
+    "noMoviesFoundForUser": "Im Datensatz von {user} wurden keine Filme gefunden",
+    "noSeriesFoundForUser": "Im Datensatz von {user} wurden keine Serien gefunden",
+    "watchedFor": "{count, plural, =1 { # Stunde} other { # Stunden}} geschaut"
+  },
+  "Imprint": {
+    "attributions": {
+      "heading": "Copyright-Nachweise",
+      "icon": "Das TV-Symbol auf der Homepage, das auch als Favicon genutzt wird, stammt von <author></author> und ist unter der <license></license> Lizenz veröffentlicht. Abrufbar auf <link></link>.",
+      "tmdb": "Bilder, Genrekategorisierungen und zusammenfassende Texte von Filmen und Serien werden von <link></link> bereitgestellt. Diese App ist jedoch weder von TMDB unterstützt noch zertifiziert."
+    },
+    "disclaimer": {
+      "heading": "Haftungsausschluss",
+      "text": "Diese App ist vom Unternehmen Netflix weder unterstützt nocht zertifiziert. Es gibt keine Garantie dafür, dass alle Berechnungen und Ergebnisse von Checkflix korrekt sind."
+    },
+    "provider": {
+      "contactbutton": "Hinterlasse mir eine Nachricht",
+      "description": "Checkflix ist ein Projekt von:",
+      "heading": "Anbieter"
+    },
+    "title": "Impressum"
+  },
+  "Metadata": {
+    "description": "Schalte deine Netflix-Statistiken mit diesem kostenlosen Tool frei! Erfahre, welche Filme und Serien du gesehen hast, wie viel Zeit du auf Netflix verbringst und an welchen Tagen du besonders viel guckst",
+    "title": "Checkflix – Analysiere dein Netflix-Nutzungsverhalten"
+  },
+  "Movies": {
+    "description": "Gezeigt werden alle Filme in alphabetischer Reihenfolge, die dem ausgewählten Genre entsprechen und die mindestens 15 Minuten lang angeschaut wurden.",
+    "notfound": "In Deinem Datensatz wurden keine Filme gefunden",
+    "title": "Deine Filme"
+  },
+  "Navigation": {
+    "dashboard": "Überblick",
+    "home": "Startseite",
+    "movies": "Filme",
+    "navtexts": {
+      "english": "English",
+      "german": "Deutsch",
+      "language": "Deine Sprache",
+      "selectLanguage": "Wählen deine Sprache aus"
+    },
+    "series": "Serien",
+    "upload": "Datei-Input"
+  },
+  "Privacy": {
+    "cookies": {
+      "description": "Um den Besuch unserer Website attraktiv zu gestalten und die Nutzung bestimmter Funktionen zu ermöglichen, verwenden wir auf verschiedenen Seiten Cookies und andere Webanalysetechnologien. \nNachfolgend finden Sie Einzelheiten dazu, welche Daten von welchem ​​Dienst zu welchem ​​Zweck verarbeitet werden können.",
+      "heading": "Cookies und Dienste"
+    },
+    "detailed": {
+      "heading": "Formale Version"
+    },
+    "short": {
+      "analytics": {
+        "heading": "Analytics",
+        "text": "Checkflix nutzt als datenschutzfreundliche Google-Analytics-Alternative das Open-Source-Tool Umami. Dieses Tool sammelt anonyme Statistiken über die Website-Nutzung. Die Daten werden auf Servern meines Webhosting-Anbieters gespeichert und verarbeitet und nicht an Dritte weitergegeben."
+      },
+      "contact": {
+        "heading": "Kontaktformular",
+        "text": "Bei Nutzung des Kontaktformulars werden die von dir eingegebenen Daten per E-Mail an mich übermittelt."
+      },
+      "data": {
+        "heading": "Datenverarbeitung",
+        "text": "Wenn du deine Netflix-Daten an Checkflix übermittelst, werden diese auf deinem Gerät analysiert. Die analysierte Datei enthält Informationen darüber, was du wann, wo und mit welchem ​​Gerät auf Netflix geschaut haben. Diese Daten werden nicht in der Cloud, sondern im Browser-Cache deines Geräts gespeichert. Wenn du diese Daten löschen willst, kannst du dies jederzeit tun, indem du auf der Seite <upload>Datei-Input</upload> auf den roten Button klickst."
+      },
+      "heading": "Zusammenfassung (in meinen eigenen Worten)",
+      "hosting": {
+        "heading": "Hosting",
+        "text": "Checkflix ist auf Serern in Deutschland bei Hetzner Online gehostet. Jeder Hosting-Anbieter muss Daten wie den Browser, die IP-Adresse usw. verarbeiten, um Webseiten bereitstellen zu können. Einzelheiten kannst du den <provider>Datenschutzbestimmungen von Hetzner</provider> entnehmen."
+      },
+      "purpose": {
+        "heading": "Zweck",
+        "text": "Checkflix ist nicht kommerziell. Diese Website wurde als Abschlussprojekt im Rahmen des <harvard>CS50-Kurses</harvard> der Harvard University erstellt. Checkflix verkauft nichts, insbesondere nicht deine Daten. Entwickler und Betreiber der Seite ist <imprint></imprint>. Checkflix wurde entwickelt, um deinen Netflix-Konsum in ansprechender Weise aufzubereiten."
+      },
+      "rights": {
+        "heading": "Recht auf Auskunft und Löschung",
+        "text": "Nach der EU-DSGVO hast du das Recht, Auskunft über die von Dienstleistern gespeicherten personenbezogenen Daten zu verlangen und diese Daten löschen zu lassen. Um Checkflix nutzen zu können, musst du kein Konto erstellen – und ich habe keine Daten gespeichert, die dir eindeutig  zugeordnet werden können. Deine Netflix-Daten werden auf deinem Gerät gespeichert und weder an mich noch an Dritte weitergegeben."
+      }
+    },
+    "title": "Datenschutzrichtlinie"
+  },
+  "Select": {
+    "genre": {
+      "resetselection": "Alle Genres"
+    }
+  },
+  "Series": {
+    "description": "Angezeigt werden alle Serien des ausgewählten Genres in absteigender Reihenfolge zur gesamten Wiedergabezeit. In der Analyse werden alle Serien berücksichtigt, die du mindestens 30 Minuten lang angesehen hast.",
+    "noSeriesFoundForUser": "Im Datensatz von {user} wurden keine Serien gefunden",
+    "notfound": "In deinem Datensatz wurden keine Serien gefunden",
+    "othertitle": "Weitere Serien",
+    "title": "Deine Serien",
+    "toptitle": "Deine {count, plural, =1 {Top-Serie} other {# Top-Serien}}"
+  },
+  "TopTenSlider": {
+    "hours": "{count, plural, =1 {# Stunde} other {# Stunden}}"
+  },
+  "Upload": {
+    "csvNotValidError": "Die CSV-Datei ist ungültig.",
+    "cvsNotFoundError": "Das Extrahieren der CSV-Datei aus der ZIP-Datei ist fehlgeschlagen.",
+    "dataDeleted": "Daten aus Browser-Cache gelöscht",
+    "deleteButton": "Daten löschen",
+    "dropHere": "Lege die Datei hier ab...",
+    "dropInstructions": "Zieh deine Datei von Netflix hierhin, oder klicke ins Feld, um eine Datei auszuwählen",
+    "errorLoadingDummyData": "Der Testdatensatz konnte nicht geladen werden",
+    "fileTypeError": "Dateityp wird nicht unterstützt.",
+    "loadDummyDataButton": "Probiere Checkflix mit einem Testdatensatz aus",
+    "noValidDataError": "In der CSV-Datei wurden keine gültigen Daten gefunden.",
+    "parsingAbortedError": "Die Verarbeitung der Datai wurde abgebrochen.",
+    "parsingerror": "Es ist ein Fehler aufgetreten: {message} Bist du sicher, dass du die richtige Datei ausgewählt hast?",
+    "privacyCard": {
+      "text": "Checkflix speichert die Ergebnisse der Analyse auf deinem Gerät (ähnlich wie Cookies gespeichert werden). Auf diese Weise kannst du auch später noch darauf zugreifen. Wenn du die Daten jedoch dauerhaft von deinem Gerät löschen möchtest, klick einfach auf den (roten) Button.",
+      "title": "Lokale Datenspeicherung"
+    },
+    "storageError": "Leider konntenn keine Daten auf deinem Gerät gespeichert werden:",
+    "subtitle": "Du hast deine Daten bei Netflix abgerufen <tutorial>wie in der Anleitung beschrieben</tutorial>? Großartig! Wähle die Datei aus, um deine Netflix-Daten zu analysieren! Alle Berechnungen finden auf deinem Gerät statt und werden nicht in der Cloud gespeichert. Weitere Informationen zur Verarbeitung der Daten findest du in der <privacy>Datenschutzerklärung</privacy>.",
+    "title": "Datei-Input",
+    "unexpectedDataError": "Unerwartete Daten in der CSV-Datei.",
+    "uploadButton": "Analyse starten",
+    "uploadButtonPending": "Bitte warten..."
+  },
+  "cookieConsent": {
+    "acceptAll": "Akzeptiere alles",
+    "categories": "Kategorien",
+    "confirmSettings": "Bestätigen Sie die Einstellungen",
+    "cookieDescription": {
+      "company": "Datenverarbeitendes Unternehmen",
+      "companyAddress": "Anschrift des datenverarbeitenden Unternehmens",
+      "contact": "Datenschutzbeauftragter des datenverarbeitenden Unternehmens",
+      "dataCollected": "Betroffene Daten",
+      "dataProtection": "Datenschutzerklärung des datenverarbeitenden Unternehmens",
+      "dataRecipients": "Datenempfänger",
+      "dataTransfer": "Datenübermittlung in Drittländer (außer EU)",
+      "description": "Beschreibung des Dienstes",
+      "legalBasis": "Rechtsgrundlage der Datenverarbeitung (EU-Nutzer)",
+      "placeOfProcessing": "Ort der Verarbeitung",
+      "purpose": "Zweck der Datenverarbeitung",
+      "storagePeriod": "Speicherdauer der Daten",
+      "technologies": "Verwendete Technologien"
+    },
+    "cookies": {
+      "company": "Steffen Ermisch",
+      "companyAddress": "Pressebüro JP4, Richard-Wagner-Str. \n10-12, 50674 Köln, Deutschland",
+      "dataCollected": "Einwilligungsoptionen des Nutzers",
+      "dataRecipients": "Die Daten verbleiben auf dem Gerät des Nutzers",
+      "description": "Speichert die Einwilligungseinstellungen des Benutzers im Browser des Benutzers.",
+      "legalBasis": "Art. \n6 Abs. \n1 lit. \nf DSGVO",
+      "placeOfProcessing": "Standort des Nutzers",
+      "purpose": "Speichert die Zustimmungseinstellungen des Nutzers",
+      "storagePeriod": "1 Jahr",
+      "technologies": "Cookies"
+    },
+    "customize": "Passen Sie die Einstellungen an",
+    "functional": {
+      "description": "Wird für erweiterte Funktionalität und Personalisierung verwendet.",
+      "name": "Funktional"
+    },
+    "imprint": "Impressum",
+    "language": {
+      "company": "Steffen Ermisch",
+      "companyAddress": "Pressebüro JP4, Richard-Wagner-Str. \n10-12, 50674 Köln, Deutschland",
+      "dataCollected": "Spracheinstellung des Browsers",
+      "dataRecipients": "Die Daten verbleiben auf dem Gerät des Nutzers",
+      "description": "Speichert Ihre Spracheinstellungen.",
+      "legalBasis": "Art. \n6 Abs. \n1 lit. \nf DSGVO",
+      "placeOfProcessing": "Standort des Nutzers",
+      "purpose": "Speichert Spracheinstellungen, um die Website in der richtigen Sprache anzuzeigen",
+      "storagePeriod": "1 Jahr",
+      "technologies": "Cookies"
+    },
+    "marketing": {
+      "description": "Wird verwendet, um Besuchern relevante Werbung anzuzeigen.",
+      "name": "Marketing"
+    },
+    "necessary": {
+      "description": "Wird für notwendige Funktionen verwendet.",
+      "name": "Notwendig"
+    },
+    "notUsed": "Wir verwenden diese Art von Cookies oder Tools nicht.",
+    "openButton": "Datenschutzeinstellungen",
+    "privacy": "Datenschutzerklärung",
+    "rejectAll": "Alles ablehnen",
+    "services": "Dienste",
+    "servicesList": "Cookies/Tools (Einzelheiten siehe Registerkarte „Dienste“)",
+    "settingsHeader": "Datenschutzeinstellungen",
+    "settingsInfo": "Hier können Sie bestimmte auf dieser Website verwendete Tools auswählen oder deaktivieren.",
+    "startHeader": "Wir legen Wert auf Ihre Privatsphäre",
+    "startInfo": "Um unsere Website sicher und zuverlässig anbieten zu können, verwenden wir Cookies und verschiedene Tools. \nSie helfen uns, die Website zu optimieren, bestimmte Funktionen bereitzustellen und Ihr persönliches Benutzererlebnis zu verbessern. \nWir bitten Sie um Ihre Erlaubnis, diese Tools nutzen zu dürfen. \nSie können Ihre Einwilligung jederzeit in den Datenschutzeinstellungen ändern oder widerrufen, indem Sie auf den Link in der Fußzeile der Website klicken.",
+    "statistics": {
+      "description": "Wird verwendet, um zu verstehen, wie Besucher mit der Website interagieren.",
+      "name": "Statistiken"
+    },
+    "storage": {
+      "company": "Steffen Ermisch",
+      "companyAddress": "Pressebüro JP4, Richard-Wagner-Str. \n10-12, 50674 Köln, Deutschland",
+      "dataCollected": "Vom Nutzer hochgeladene Netflix-Datendatei",
+      "dataRecipients": "Die Daten verbleiben auf dem Gerät des Nutzers",
+      "description": "Ihre Netflix-Datendatei wird zur Analyse in Ihrem Browser-Cache gespeichert.",
+      "legalBasis": "Art. \n6 Abs. \n1 lit. \nf DSGVO",
+      "placeOfProcessing": "Standort des Nutzers",
+      "purpose": "Wird zur Analyse Ihrer Netflix-Daten benötigt",
+      "storagePeriod": "Bis der Nutzer sie löscht",
+      "technologies": "IndexedDB"
+    },
+    "theme": {
+      "company": "Steffen Ermisch",
+      "companyAddress": "Pressebüro JP4, Richard-Wagner-Str. \n10-12, 50674 Köln, Deutschland",
+      "dataCollected": "Präferenz des Nutzers für den Dunkel-/Hellmodus",
+      "dataRecipients": "Die Daten verbleiben auf dem Gerät des Nutzers",
+      "description": "Speichert die Nutzerpräferenz für das Erscheinungsbild der Website.",
+      "legalBasis": "Art. \n6 Abs. \n1 lit. \nf DSGVO",
+      "placeOfProcessing": "Standort des Nutzes",
+      "purpose": "Wird benötigt, um die Designpräferenz des Nutzers zu speichern",
+      "storagePeriod": "bis der Browser geschlossen wird",
+      "technologies": "Session Storage"
+    },
+    "title": "Datenschutzeinstellungen",
+    "umami": {
+      "company": "Steffen Ermisch",
+      "companyAddress": "Pressebüro JP4, Richard-Wagner-Str. \n10-12, 50674 Köln, Deutschland",
+      "dataCollected": "Browserinformationen, Geräteinformationen, Referrer-URL, Datum und Uhrzeit der Anfrage, Geolokalisierung, Referrer-URL, Nutzeraktivität",
+      "dataRecipients": "Steffen Ermisch",
+      "description": "Sammelt anonyme Statistiken über die Website-Nutzung.",
+      "legalBasis": "Art. \n6 Abs. \n1 lit. \nf DSGVO",
+      "placeOfProcessing": "Europäische Union",
+      "purpose": "Sammelt anonyme Statistiken über die Website-Nutzung",
+      "storagePeriod": "Die Daten werden gelöscht, sobald sie für die Zwecke der Verarbeitung nicht mehr erforderlich sind.",
+      "technologies": "Fingerprinting"
+    },
+    "youtube": {
+      "company": "Google Ireland Limited",
+      "companyAddress": "Gordon House, Barrow Street, Dublin 4, Irland",
+      "dataCollected": "Geräteinformationen, IP-Adresse, geografischer Standort, Systemaktivität, Benutzeraktivität, Datum und Uhrzeit der Anfrage, Referrer-URL, Absturzberichte",
+      "dataRecipients": "Alphabet Inc, Google LLC, Google Ireland Limited",
+      "dataTransfer": "Vereinigte Staaten von Amerika",
+      "description": "Ermöglicht die Anzeige von Videos.",
+      "legalBasis": "Kunst. \n6 Abs. \n1 lit. \na DSGVO",
+      "placeOfProcessing": "Hängt vom Standort des Benutzers ab, da YouTube auf verschiedenen Servern in verschiedenen Ländern läuft",
+      "purpose": "Videos anzeigen",
+      "storagePeriod": "9 - 18 Monate",
+      "technologies": "Cookies, lokale Speicherung",
+      "warning": "Bitte akzeptieren Sie Cookies für YouTube, um dieses Video anzusehen."
+    }
+  }
+}

@@ -1,0 +1,35 @@
+[
+    {
+        "user": "user1",
+        "genres": {
+            "Drama": 10,
+            "Thriller": 10,
+            "Science Fiction": 9,
+            "Mystery": 6,
+            "Horror": 4,
+            "Action": 4,
+            "Krimi": 4,
+            "Liebesfilm": 3,
+            "Dokumentarfilm": 3,
+            "Komödie": 3,
+            "TV-Film": 2,
+            "Abenteuer": 2,
+            "Fantasy": 1
+        }
+    },
+    {
+        "user": "user2",
+        "genres": {
+            "Science Fiction": 2,
+            "Dokumentarfilm": 2,
+            "Horror": 1,
+            "Thriller": 1,
+            "Drama": 1,
+            "Liebesfilm": 1,
+            "Action": 1,
+            "Abenteuer": 1,
+            "Historie": 1,
+            "Animation": 1
+        }
+    }
+]

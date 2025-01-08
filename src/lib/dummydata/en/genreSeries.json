@@ -1,0 +1,27 @@
+[
+    {
+        "user": "user1",
+        "genres": {
+            "Drama": 31,
+            "Sci-Fi & Fantasy": 19,
+            "Mystery": 12,
+            "Crime": 11,
+            "Action & Adventure": 5,
+            "Comedy": 3,
+            "War & Politics": 2,
+            "Documentary": 2,
+            "Animation": 1,
+            "Talk": 1
+        }
+    },
+    {
+        "user": "user2",
+        "genres": {
+            "Comedy": 9,
+            "Drama": 5,
+            "Documentary": 2,
+            "Mystery": 1,
+            "Animation": 1
+        }
+    }
+]
