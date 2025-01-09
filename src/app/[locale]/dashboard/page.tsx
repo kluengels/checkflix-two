@@ -4,18 +4,52 @@ import { useData } from "@/context/DataProvider";
 import { useStorageMany } from "@/hooks/useStorage";
 import { useRouter } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
+import dynamic from "next/dynamic";
 
-import { YearsCard } from "@/components/charts/YearsCard";
-import UsersCard from "@/components/layouts/UsersCard";
-import { GenresCard } from "@/components/charts/GenresCard";
-import { WeekdaysCard } from "@/components/charts/WeekDaysCard";
-import { MonthCard } from "@/components/charts/MonthsCard";
-import { CalenderCard } from "@/components/charts/CalenderCard";
-import { TopSeriesCard } from "@/components/charts/TopSeriesCard";
+// Dynamically import charts
+const UsersCard = dynamic(() => import("@/components/layouts/UsersCard"), {
+  ssr: false,
+  loading: () => <Skeleton className="h-[150px] w-full sm:col-span-12" />,
+});
+const YearsCard = dynamic(() => import("@/components/charts/YearsCard"), {
+  ssr: false,
+  loading: () => (
+    <Skeleton className="h-[400px] w-full sm:col-span-12 xl:col-span-8" />
+  ),
+});
+const GenresCard = dynamic(() => import("@/components/charts/GenresCard"), {
+  ssr: false,
+  loading: () => <Skeleton className="h-[300px] w-full sm:col-span-6" />,
+});
+const TopSeriesCard = dynamic(
+  () => import("@/components/charts/TopSeriesCard"),
+  {
+    ssr: false,
+    loading: () => (
+      <Skeleton className="h-[400px] w-full sm:col-span-12 xl:col-span-4" />
+    ),
+  },
+);
+const WeekdaysCard = dynamic(() => import("@/components/charts/WeekDaysCard"), {
+  ssr: false,
+  loading: () => (
+    <Skeleton className="h-[300px] w-full sm:col-span-12 lg:col-span-5" />
+  ),
+});
+const MonthCard = dynamic(() => import("@/components/charts/MonthsCard"), {
+  ssr: false,
+  loading: () => (
+    <Skeleton className="h-[300px] w-full sm:col-span-12 lg:col-span-7" />
+  ),
+});
+const CalenderCard = dynamic(() => import("@/components/charts/CalenderCard"), {
+  ssr: false,
+  loading: () => <Skeleton className="h-[200px] w-full sm:col-span-12" />,
+});
 
 import LoadingGrid from "./_components/LoadingGrid";
 import { Button } from "@/components/ui/button";
-
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default function Page() {
   const t = useTranslations("Dashboard.noData");

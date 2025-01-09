@@ -40,7 +40,7 @@ interface TopSeriesCardProps {
 /**
  * Redners a card with the most viewed tv show, followed by a bar chart showing the top 5 tv shows by duration
  */
-export function TopSeriesCard({ activityData, className }: TopSeriesCardProps) {
+export default function TopSeriesCard({ activityData, className }: TopSeriesCardProps) {
   const t = useTranslations("Dashboard.topSeries");
   const { user } = useData();
   const showAllUsers = user === "all";

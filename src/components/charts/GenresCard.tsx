@@ -36,7 +36,11 @@ interface GenresCardProps {
 /**
  * Renders a card with the number of movies / tv shows watched and their respective genres in a Chart
  */
-export function GenresCard({ activityData, type, className }: GenresCardProps) {
+export default function GenresCard({
+  activityData,
+  type,
+  className,
+}: GenresCardProps) {
   const t = useTranslations("Dashboard.genres");
   const locale = useLocale() as Locale;
   const { user } = useData();

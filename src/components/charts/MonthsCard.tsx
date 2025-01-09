@@ -38,7 +38,7 @@ interface MonthCardProps {
  * @param className - optional additional className
  * @returns a card with a stacked area chart
  */
-export function MonthCard({ activityData, className }: MonthCardProps) {
+export default function MonthCard({ activityData, className }: MonthCardProps) {
   const t = useTranslations("Dashboard.months");
   const locale = useLocale() as Locale;
   const { user, activeYear, setActiveYear } = useData();

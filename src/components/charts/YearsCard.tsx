@@ -33,7 +33,7 @@ interface YearCardProps {
 /**
  * Renders a card with a summary of the total viewTime of the user and a chart with the viewTime per year
  */
-export function YearsCard({ activityData, className }: YearCardProps) {
+export default function YearsCard({ activityData, className }: YearCardProps) {
   const t = useTranslations("Dashboard.time");
   const locale = useLocale() as Locale;
   const { user } = useData();

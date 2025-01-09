@@ -39,7 +39,10 @@ interface WeekdaysCardProps {
  * @param className - optional additional className
  * @returns a card with a radar chart
  */
-export function WeekdaysCard({ activityData, className }: WeekdaysCardProps) {
+export default function WeekdaysCard({
+  activityData,
+  className,
+}: WeekdaysCardProps) {
   const t = useTranslations("Dashboard.weekdays");
   const locale = useLocale() as Locale;
   const { user, activeYear, setActiveYear } = useData();

@@ -35,7 +35,10 @@ interface CalenderCardProps {
  * @param className - optional additional className
  * @returns a card with a github activities like chart
  */
-export function CalenderCard({ activityData, className }: CalenderCardProps) {
+export default function CalenderCard({
+  activityData,
+  className,
+}: CalenderCardProps) {
   const t = useTranslations("Dashboard.calender");
   const locale = useLocale() as Locale;
   const { user, activeYear, setActiveYear } = useData();
