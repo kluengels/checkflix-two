@@ -1,11 +1,9 @@
-"use client";
 import { useData } from "@/context/DataProvider";
 import { useLocale, useTranslations } from "next-intl";
 import { useMemo } from "react";
 import { Locale } from "@/i18n/routing";
 
 import { hoursFromSeconds } from "@/utils/transformDuration";
-import createDateListFromActivityData from "@/utils/prepareCharts";
 import SelectYear from "../selects/SelectYear";
 import { cn } from "@/lib/utils";
 
@@ -43,41 +41,76 @@ export default function MonthCard({ activityData, className }: MonthCardProps) {
   const locale = useLocale() as Locale;
   const { user, activeYear, setActiveYear } = useData();
 
-  // transform data to a format focussing on date and duration, filtered by user
-  const dateList = useMemo(() => {
-    const rawDateList = createDateListFromActivityData(
-      activityData,
-      locale,
-      user,
-    );
-    return rawDateList;
-  }, [activityData, user, locale]);
+  // chartdata is array of objects with structure like {month: "January", 2021: 0, 2022: 0, ...}
+  const { chartData, years } = useMemo(() => {
+    const data: { [year: number]: number; month: number }[] = [];
 
-  // get list of all years in unfiltered data
-  const years = useMemo(() => {
-    return Array.from(new Set(dateList.map((item) => item.year)));
-  }, [dateList]);
+    activityData.forEach((activity) => {
+      // filter by user
+      if (user !== "all" && activity.user !== user) return;
 
-  // prepare data for chart
-  const chartData = useMemo(() => {
-    const data: MonthChartData[] = [];
-    // create objects like {month: "January", 2021: 0, 2022: 0, ...}
-    dateList.forEach((item) => {
-      const existingItem = data.find(
-        (chartItem) => chartItem.month === item.month,
+      // check if month is already in data
+      const monthIndex = data.findIndex(
+        (item) => item.month === activity.date.getMonth(),
       );
-      if (existingItem) {
-        existingItem[item.year] =
-          (existingItem[item.year] || 0) + hoursFromSeconds(item.duration);
+
+      // if month is not in data, add it
+      if (monthIndex === -1) {
+        data.push({
+          month: activity.date.getMonth(),
+          [activity.date.getFullYear()]: hoursFromSeconds(activity.duration),
+        });
       } else {
-        const newItem = initializeMonthData(item.month, years);
-        newItem[item.year] = hoursFromSeconds(item.duration);
-        data.push(newItem);
+        // if day is in data, check if year is already in day-object
+        if (data[monthIndex][activity.date.getFullYear()]) {
+          data[monthIndex][activity.date.getFullYear()] += hoursFromSeconds(
+            activity.duration,
+          );
+        } else {
+          data[monthIndex][activity.date.getFullYear()] = hoursFromSeconds(
+            activity.duration,
+          );
+        }
       }
     });
-    // sort by month
-    return sortByMonth(data, locale);
-  }, [dateList, years, locale]);
+
+    // Extract unique years
+    const years = Array.from(
+      new Set(
+        data.flatMap(
+          (obj) =>
+            Object.keys(obj)
+              .filter((key) => key !== "month") // Exclude the "month" key
+              .map((key) => Number(key)), // Convert keys to numbers
+        ),
+      ),
+    );
+
+    // if a year is missing in the data, add it with 0 hours
+    data.forEach((item) => {
+      years.forEach((year) => {
+        if (!item[year]) {
+          item[year] = 0;
+        }
+      });
+    });
+
+    // sort data by month
+    const sortedByMonth = data.sort((a, b) => a.month - b.month);
+
+
+    // replace day number with weekday name
+    const sortedWithMonthString: MonthChartData[] = sortedByMonth.map(
+      (item) => ({
+        ...item,
+        month: new Date(0, item.month).toLocaleDateString(locale, {
+          month: "long",
+        }),
+      }),
+    );
+
+    return { chartData: sortedWithMonthString, years };
+  }, [activityData, user, locale]);
 
   // filter chart data by selected year
   const filteredChartData = useMemo(() => {
@@ -99,7 +132,7 @@ export default function MonthCard({ activityData, className }: MonthCardProps) {
   const chartConfig = createChartConfig(years) satisfies ChartConfig;
 
   // check if data is available
-  if (dateList.length === 0) return null;
+  if (chartData.length === 0) return null;
   if (years.length === 0) return null;
   const hasData = chartData.some((item) =>
     filteredYears.some((year) => item[year] > 0),
@@ -219,50 +252,7 @@ export default function MonthCard({ activityData, className }: MonthCardProps) {
   );
 }
 
-/**
- * Get the month names in the correct order for the current locale
- */
-function getMonth(locale: Locale) {
-  if (locale === "en") {
-    return [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ];
-  } else {
-    return [
-      "Januar",
-      "Februar",
-      "März",
-      "April",
-      "Mai",
-      "Juni",
-      "Juli",
-      "August",
-      "September",
-      "Oktober",
-      "November",
-      "Dezember",
-    ];
-  }
-}
-
 // helper functions
-const sortByMonth = (data: MonthChartData[], locale: Locale) => {
-  const dayOrder = getMonth(locale);
-  return data.sort(
-    (a, b) => dayOrder.indexOf(a.month) - dayOrder.indexOf(b.month),
-  );
-};
 
 const filterDataByYear = (
   data: MonthChartData[],
@@ -274,19 +264,6 @@ const filterDataByYear = (
     month: item.month,
     [year]: item[year],
   }));
-};
-
-const initializeMonthData = (
-  month: string,
-  years: number[],
-): MonthChartData => {
-  const monthData: MonthChartData = { month };
-
-  years.forEach((year) => {
-    monthData[year] = 0;
-  });
-
-  return monthData;
 };
 
 /**

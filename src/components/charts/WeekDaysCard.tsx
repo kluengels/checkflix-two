@@ -1,10 +1,9 @@
-"use client";
 import { useData } from "@/context/DataProvider";
 import { useLocale, useTranslations } from "next-intl";
 import { useMemo } from "react";
 import { Locale } from "@/i18n/routing";
 
-import createDateListFromActivityData from "@/utils/prepareCharts";
+
 import { hoursFromSeconds } from "@/utils/transformDuration";
 import SelectYear from "../selects/SelectYear";
 import { cn } from "@/lib/utils";
@@ -47,41 +46,79 @@ export default function WeekdaysCard({
   const locale = useLocale() as Locale;
   const { user, activeYear, setActiveYear } = useData();
 
-  // transform data to a format focussing on date and duration, filtered by user
-  const dateList = useMemo(() => {
-    const rawDateList = createDateListFromActivityData(
-      activityData,
-      locale,
-      user,
-    );
-    return rawDateList;
-  }, [activityData, user, locale]);
+  // chartData is an array of objects with the following structure: {
+  //     "2015": 1,
+  //     "2016": 13,
+  //     "2017": 7,
+  //     "2018": 11,
+  //     "2019": 11,
+  //     "2020": 4,
+  //     "2021": 3,
+  //     "2022": 2,
+  //     "2023": 0,
+  //     "day": "Monday"
+  // }
 
-  // get list of all years from data
-  const years = useMemo(() => {
-    return Array.from(new Set(dateList.map((item) => item.year)));
-  }, [dateList]);
-
-  // prepare data for chart
-  const chartData = useMemo(() => {
-    const data: WeekdayChartData[] = [];
+  const { chartData, years } = useMemo(() => {
+    const data: { [year: number]: number; day: number }[] = [];
 
     // create objects ilke {day: "Monday", 2021: 0, 2022: 0, ...}
-    dateList.forEach((item) => {
-      const existingItem = data.find((chartItem) => chartItem.day === item.day);
-      if (existingItem) {
-        existingItem[item.year] =
-          (existingItem[item.year] || 0) + hoursFromSeconds(item.duration);
+    activityData.forEach((activity) => {
+      // filter by user
+      if (user !== "all" && activity.user !== user) return;
+
+      // check if day is already in data
+      const dayIndex = data.findIndex(
+        (item) => item.day === activity.date.getDay(),
+      );
+
+      // if day is not in data, add it
+      if (dayIndex === -1) {
+        data.push({
+          day: activity.date.getDay(),
+          [activity.date.getFullYear()]: hoursFromSeconds(activity.duration),
+        });
       } else {
-        const newItem = initializeWeekdayData(item.day, years);
-        newItem[item.year] = hoursFromSeconds(item.duration);
-        data.push(newItem);
+        // if day is in data, check if year is already in day-object
+        if (data[dayIndex][activity.date.getFullYear()]) {
+          data[dayIndex][activity.date.getFullYear()] += hoursFromSeconds(
+            activity.duration,
+          );
+        } else {
+          data[dayIndex][activity.date.getFullYear()] = hoursFromSeconds(
+            activity.duration,
+          );
+        }
       }
     });
-
     // sort data by weekday
-    return sortByWeekday(data, locale);
-  }, [dateList, years, locale]);
+    const sortedByWeekday = data.sort((a, b) => a.day - b.day);
+
+    // replace day number with weekday name
+    const soretedWithWeekDayString: WeekdayChartData[] = sortedByWeekday.map(
+      (item) => ({
+        ...item,
+        day: new Date(0, 0, item.day).toLocaleDateString(locale, {
+          weekday: "long",
+        }),
+      }),
+    );
+
+    // Extract unique years
+    const years = Array.from(
+      new Set(
+        data.flatMap(
+          (obj) =>
+            Object.keys(obj)
+              .filter((key) => key !== "day") // Exclude the "day" key
+              .map((key) => Number(key)), // Convert keys to numbers
+        ),
+      ),
+    );
+
+    return { chartData: soretedWithWeekDayString, years };
+  }, [activityData, user, locale]);
+
 
   // filter chart data by selected year
   const filteredChartData = useMemo(() => {
@@ -102,7 +139,7 @@ export default function WeekdaysCard({
   // create chart config
   const chartConfig = createChartConfig(years) satisfies ChartConfig;
 
-  if (dateList.length === 0) return null;
+  if (chartData.length === 0) return null;
   if (years.length === 0) return null;
 
   // check if the hightest duration in chartData is greater than 0
@@ -111,6 +148,7 @@ export default function WeekdaysCard({
   );
   if (!hasData) return null;
 
+ 
   return (
     <Card className={cn("w-full", className)}>
       {/* Header renders the most popular weekday in a given year and a year selector */}
@@ -207,40 +245,8 @@ export default function WeekdaysCard({
   );
 }
 
-/**
- * Get the weekdays in the correct order for the current locale
- */
-function getWeekDays(locale: Locale) {
-  if (locale === "en") {
-    return [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday",
-    ];
-  } else {
-    return [
-      "Montag",
-      "Dienstag",
-      "Mittwoch",
-      "Donnerstag",
-      "Freitag",
-      "Samstag",
-      "Sonntag",
-    ];
-  }
-}
 
 // helper functions
-
-const sortByWeekday = (data: WeekdayChartData[], locale: Locale) => {
-  const dayOrder = getWeekDays(locale);
-  return data.sort((a, b) => dayOrder.indexOf(a.day) - dayOrder.indexOf(b.day));
-};
-
 const filterDataByYear = (
   data: WeekdayChartData[],
   year: number | null | undefined,
@@ -253,16 +259,6 @@ const filterDataByYear = (
   }));
 };
 
-const initializeWeekdayData = (
-  day: string,
-  years: number[],
-): WeekdayChartData => {
-  const weekdayData: WeekdayChartData = { day };
-  years.forEach((year) => {
-    weekdayData[year] = 0;
-  });
-  return weekdayData;
-};
 
 const createChartConfig = (
   years: number[],

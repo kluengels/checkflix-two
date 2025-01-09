@@ -1,4 +1,4 @@
-"use client";
+
 import { useData } from "@/context/DataProvider";
 import { EnrichedActivity } from "@/types/customTypes";
 import { useTranslations } from "next-intl";

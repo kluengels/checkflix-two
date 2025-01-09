@@ -1,4 +1,3 @@
-"use client";
 import { useData } from "@/context/DataProvider";
 import { useMemo } from "react";
 import { Link, Locale } from "@/i18n/routing";
@@ -47,55 +46,47 @@ export default function GenresCard({
   const isMovie = type === "movies";
   const showAllUsers = user === "all";
 
-  // Count the number of movies / tv shows watched for user
-  const itemsCount = useMemo(() => {
-    if (!showAllUsers) {
-      return activityData.filter((item) => item.user === user).length;
-    }
-    return activityData.length;
-  }, [activityData, showAllUsers, user]);
+  const { itemsCount, genreMap } = useMemo(() => {
+    const result = {
+      itemsCount: 0,
+      genreMap: new Map<string, number>(),
+    };
 
-  // Get the genres watched and output them in an array
-  const genreList = useMemo(
-    () =>
-      activityData
-        .filter((item) =>
-          showAllUsers
-            ? item.genres && item.genres.length > 0
-            : item.genres && item.genres.length > 0 && item.user === user,
-        ) // filter out items without genres, filter user
-        .map((item) => item.genres) // get the genres in an array
-        .flat(),
-    [activityData, showAllUsers, user],
-  );
+    activityData.forEach((item) => {
+      if (!showAllUsers && item.user !== user) {
+        return;
+      }
+      // Count the number of movies / tv shows watched for user
+      result.itemsCount++;
+
+      //  genreList calculations
+      if (item.genres?.length) {
+        item.genres.forEach((genre) => {
+          if (genre) {
+            result.genreMap.set(genre, (result.genreMap.get(genre) || 0) + 1);
+          }
+        });
+      }
+    });
+
+    return result;
+  }, [activityData, showAllUsers, user]);
 
   // Transform the genres array into an object with the genre as key and the count as value
   const chartData = useMemo(() => {
-    const data: { genre: string; count: number; fill?: string }[] = [];
-    genreList.forEach((item) => {
-      const existingGenre = data.find((data) => data.genre === item);
+    return (
+      Array.from(genreMap, ([genre, count]) => ({ genre, count }))
 
-      if (existingGenre) {
-        existingGenre.count += 1;
-      } else {
-        if (item) {
-          data.push({
-            genre: item,
-            count: 1,
-          });
-        }
-      }
-    });
-    // Sort the genres by count (descending)
-    data.sort((a, b) => b.count - a.count);
-
-    // add fill colors to the genres
-    data.forEach((item, index) => {
-      const color = `hsl(var(--chart-${index + 1}))`;
-      item.fill = color;
-    });
-    return data;
-  }, [genreList]);
+        // sort decending by count
+        .sort((a, b) => b.count - a.count)
+        
+        // assing a color to each genre
+        .map((item, index) => ({
+          ...item,
+          fill: `hsl(var(--chart-${index + 1}))`,
+        }))
+    );
+  }, [genreMap]);
 
   // check if highest count applies to multiple genres (used to highlight multiple genres in the chart)
   const activeIndexArray = useMemo(() => {

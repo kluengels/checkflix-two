@@ -1,10 +1,8 @@
-"use client";
 import { useData } from "@/context/DataProvider";
 import { useMemo } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Locale } from "@/i18n/routing";
 
-import createDateListFromActivityData from "@/utils/prepareCharts";
 import { daysFromSeconds, hoursFromSeconds } from "@/utils/transformDuration";
 import { cn } from "@/lib/utils";
 
@@ -38,56 +36,49 @@ export default function YearsCard({ activityData, className }: YearCardProps) {
   const locale = useLocale() as Locale;
   const { user } = useData();
 
-  // transform data to a format focussing on date and duration, filter by user
-  const dateList = useMemo(() => {
-    const rawDateList = createDateListFromActivityData(
-      activityData,
-      locale,
-      user,
-    );
-    return rawDateList;
-  }, [activityData, user, locale]);
+  const { chartData, viewTime, firstDate } = useMemo(() => {
+    let viewTime = 0;
+    let firstDate = new Date();
+    const chartData: YearChartData = [];
 
-  // Calculate total viewTime for user and find first viewing date
-  const { viewTime, firstDate } = useMemo(() => {
-    let totalTime = 0;
-    let earliest = new Date();
+    activityData.forEach((activity) => {
+      // filter by user
+      if (user !== "all" && activity.user !== user) return;
+      // add duration to viewTime
+      viewTime += activity.duration;
 
-    dateList.forEach((item) => {
-      totalTime += item.duration;
-      if (item.date.getTime() - earliest.getTime() < 0) {
-        earliest = item.date;
+      // set firstDate if date in activity is earlier than firstDate
+      if (!firstDate || activity.date < firstDate) {
+        firstDate = activity.date;
+      }
+
+      // check if year is already in dateList
+      const yearIndex = chartData.findIndex(
+        (item) => item.year === activity.date.getFullYear(),
+      );
+      // if year is not in dateList, add it
+      if (yearIndex === -1) {
+        chartData.push({
+          year: activity.date.getFullYear(),
+          duration: activity.duration,
+        });
+      } else {
+        // if year is in dateList, add duration to existing year
+        chartData[yearIndex].duration += activity.duration;
       }
     });
 
-    return { viewTime: totalTime, firstDate: earliest };
-  }, [dateList]);
+    // sort chartData by year (ascending)
+    chartData.sort((a, b) => a.year - b.year);
+
+    return { chartData, viewTime, firstDate };
+  }, [activityData, user]);
 
   // Prepare dates and viewTime for rendering
   const firstMonth = firstDate.toLocaleString(locale, { month: "long" });
-  const firstYear = firstDate?.getFullYear();
+  const firstYear = firstDate.getFullYear();
   const viewTimeHours = hoursFromSeconds(viewTime);
   const viewTimeDays = daysFromSeconds(viewTime);
-
-  // Prepare data for chart
-  const chartData: YearChartData = useMemo(() => {
-    const data: YearChartData = [];
-    dateList.forEach((item) => {
-      const hours = item.duration / 60 / 60;
-      const existingData = data.find((d) => d.year === item.year);
-      if (existingData) {
-        existingData.duration += hours;
-      } else {
-        data.push({ year: item.year, duration: hours });
-      }
-    });
-    // round duration to full hours
-    data.forEach((item) => {
-      item.duration = Math.round(item.duration);
-    });
-
-    return data.sort((a, b) => a.year - b.year); // sort by year (ascending)
-  }, [dateList]);
 
   const chartConfig = {
     duration: {
@@ -104,7 +95,7 @@ export default function YearsCard({ activityData, className }: YearCardProps) {
         <CardTitle className="">
           <p className="my-0 text-base">{t("head")}</p>
           <h2 className="text-6xl sm:text-7xl">
-            {viewTimeHours}{" "}
+            {viewTimeHours.toLocaleString(locale)}{" "}
             <span className="text-4xl">
               {t("title", { viewTimeHours: viewTimeHours })}
             </span>

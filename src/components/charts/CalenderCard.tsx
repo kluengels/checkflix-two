@@ -1,4 +1,3 @@
-"use client";
 import { useData } from "@/context/DataProvider";
 import { useLocale, useTranslations } from "next-intl";
 import { useMemo, useState } from "react";
@@ -53,48 +52,40 @@ export default function CalenderCard({
 
   // filter the data by user and transform data to a format needed for the chart: data per day with the total duration
   const { uniqueDaysData, years } = useMemo(() => {
-    // Filter by user
-    const filteredByUser =
-      user !== "all"
-        ? activityData.filter((item) => item.user === user)
-        : activityData;
+    const daysMap = new Map<string, CalenderChartData>();
+    const yearsSet = new Set<number>();
 
-    const rawDates: CalenderChartData[] = [];
-    const years: number[] = [];
+    // data transformation and aggregation
+    activityData.forEach((item) => {
+      // filter by user
+      if (user !== "all" && item.user !== user) return;
 
-    // Iterate over raw data and extract day / duration / year and date object
-    filteredByUser.forEach((item) => {
-      const object = {
-        day: item.date.toISOString().slice(0, 10),
-        value: item.duration,
-        year: item.date.getFullYear(),
-        date: item.date,
-      };
-      rawDates.push(object);
-    });
+      const day = item.date.toISOString().slice(0, 10);
+      const year = item.date.getFullYear();
+      yearsSet.add(year);
 
-    // sum up the duration for each day
-    const uniqueDaysData = rawDates.reduce((acc, item) => {
-      const existingItem = acc.find((accItem) => accItem.day === item.day);
-      if (existingItem) {
-        existingItem.value += item.value;
+      // create chart data object
+      const existingDay = daysMap.get(day);
+      if (existingDay) {
+        existingDay.value += item.duration;
       } else {
-        acc.push(item);
+        daysMap.set(day, {
+          day,
+          value: item.duration,
+          year,
+          date: item.date,
+        });
       }
-      return acc;
-    }, [] as CalenderChartData[]);
-
-    // round the duration to minutes
-    uniqueDaysData.forEach((item) => {
-      const existingYear = years.find((year) => year === item.year);
-      if (!existingYear && item.year) {
-        years.push(item.year);
-      }
-      item.value = Math.round(item.value / 60);
     });
 
-    // sort the years (descending)
-    years.sort((a, b) => b - a);
+    // Convert to final format and round values
+    const uniqueDaysData = Array.from(daysMap.values()).map((item) => ({
+      ...item,
+      value: Math.round(item.value / 60),
+    }));
+
+    // Convert years set to sorted array
+    const years = Array.from(yearsSet).sort((a, b) => b - a);
 
     return { uniqueDaysData, years };
   }, [activityData, user]);
