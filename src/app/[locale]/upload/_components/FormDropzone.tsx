@@ -72,7 +72,6 @@ export default function FormDropzone({ className }: { className?: string }) {
     // seperate movies and tv shows
     const { movieData, tvShowData } = seperateData(parsedData);
 
-    console.log("detected language: ", language);
     // enrich data with details from the movie database
     const [
       { data: enrichedMovieData, error: enrichedMovieError },

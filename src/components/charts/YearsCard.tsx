@@ -71,6 +71,11 @@ export default function YearsCard({ activityData, className }: YearCardProps) {
     // sort chartData by year (ascending)
     chartData.sort((a, b) => a.year - b.year);
 
+    // transform time in chartData to hours
+    chartData.forEach((item) => {
+      item.duration = hoursFromSeconds(item.duration);
+    });
+
     return { chartData, viewTime, firstDate };
   }, [activityData, user]);
 
@@ -117,6 +122,7 @@ export default function YearsCard({ activityData, className }: YearCardProps) {
               axisLine={false}
               //   tickFormatter={(value) => value.slice(0, 3)}
             />
+            
             <ChartTooltip
               cursor={false}
               content={<ChartTooltipContent hideLabel />}

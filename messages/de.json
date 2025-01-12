@@ -114,7 +114,7 @@
       "title": "{viewTimeHours, plural, =1 {Stunde} other {Stunden}}"
     },
     "topSeries": {
-      "description": "mit {count, plural, =1 { # geguckter Stunde } other { # geguckten Stunden } }.",
+      "description": "mit {count, plural, =1 { # geguckter Stunde} other { # geguckten Stunden} }.",
       "linkText": "Hier geht's zu allen Serien",
       "title": "Dein absoluter Favorit ist"
     },
