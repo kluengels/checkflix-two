@@ -2,8 +2,8 @@
 // system / framework imports
 import { useDropzone } from "react-dropzone";
 import { useState } from "react";
-import { useLocale, useTranslations } from "next-intl";
-import { Locale, useRouter } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
+import {  useRouter } from "@/i18n/routing";
 import { setMany } from "idb-keyval";
 import { useData } from "@/context/DataProvider";
 
@@ -28,7 +28,6 @@ import { cn } from "@/lib/utils";
  * Renders a dropzone for file upload, processes the file and starts the analysis. Saves date in browser storage and redirects to the dashboard page if successfull.
  */
 export default function FormDropzone({ className }: { className?: string }) {
-  const lang = useLocale() as Locale;
   const t = useTranslations("Upload");
   const router = useRouter();
   const { setHasStorageData } = useData();
@@ -52,11 +51,14 @@ export default function FormDropzone({ className }: { className?: string }) {
       unexpectedData: t("unexpectedDataError"),
       noValidData: t("noValidDataError"),
     };
-    const { data: parsedData, error: parsedError } = await parseData(
-      file,
-      errorMessages,
-    );
-    if (parsedError || !parsedData) {
+    const { data, error: parsedError } = await parseData(file, errorMessages);
+    if (parsedError || !data) {
+      setError(t("parsingerror", { message: parsedError }));
+      setPending(false);
+      return;
+    }
+    const { validatedData: parsedData, language } = data;
+    if (!parsedData) {
       setError(t("parsingerror", { message: parsedError }));
       setPending(false);
       return;
@@ -70,13 +72,14 @@ export default function FormDropzone({ className }: { className?: string }) {
     // seperate movies and tv shows
     const { movieData, tvShowData } = seperateData(parsedData);
 
+    console.log("detected language: ", language);
     // enrich data with details from the movie database
     const [
       { data: enrichedMovieData, error: enrichedMovieError },
       { data: enrichedTvShowData, error: enrichedTvShowError },
     ] = await Promise.all([
-      enrichData(movieData, lang, "movie"),
-      enrichData(tvShowData, lang, "tv"),
+      enrichData(movieData, language, "movie"),
+      enrichData(tvShowData, language, "tv"),
     ]);
 
     // error handling
@@ -191,7 +194,7 @@ export default function FormDropzone({ className }: { className?: string }) {
         )}
       </div>
 
-     {/* Loading Button and Link to load test data set */} 
+      {/* Loading Button and Link to load test data set */}
       <div className="mt-4 flex gap-4">
         <LoadingButton
           disabled={!file || !!error || pending}
@@ -204,7 +207,7 @@ export default function FormDropzone({ className }: { className?: string }) {
 
         {!pending && <LoadDummyDataButton {...{ setPending, setError }} />}
       </div>
-      
+
       {/* Privacy Info Card with Button to delete data */}
       {!pending && (
         <Card className="mt-24 opacity-70 hover:opacity-100">

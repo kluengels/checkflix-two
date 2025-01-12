@@ -167,7 +167,7 @@
     },
     "uploadButtonPending": "Processing...",
     "uploadButton": "Start analysis",
-    "parsingerror": "Somthing went wrong: {message} Are you sure you selected the right file?",
+    "parsingerror": "Something went wrong: {message} Are you sure you selected the right file?",
     "storageError": "Sorry, we could not store the data on your device: ",
     "fileTypeError": "File type not supported.",
     "cvsNotFoundError": "Failed to extract CSV file from the zip file.",

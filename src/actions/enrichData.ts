@@ -28,7 +28,7 @@ const options = {
  */
 export default async function enrichData(
   data: EnrichedActivity[],
-  lang: "de" | "en",
+  lang: string,
   type: "movie" | "tv",
 ) {
   const t = await getTranslations("Errors");
@@ -87,7 +87,7 @@ export default async function enrichData(
  * @param type can be either "movie" or "tv"
  * @returns list of genres with id and name
  */
-async function fetchGenreNames(lang: "de" | "en", type: "movie" | "tv") {
+async function fetchGenreNames(lang: string, type: "movie" | "tv") {
   const t = await getTranslations("Errors");
   try {
     // fetch genre list from movie DB
@@ -124,7 +124,7 @@ async function fetchGenreNames(lang: "de" | "en", type: "movie" | "tv") {
 async function fetchDetails(
   title: string,
   type: "movie" | "tv",
-  lang: "de" | "en",
+  lang: string,
   genreList: GenreListItem[],
 ) {
   // booelean operator to check if type is movie, otherwise it is a tv show
@@ -143,14 +143,9 @@ async function fetchDetails(
     const result = await response.json();
     if (!result.results) throw new Error("No results found");
 
-    let results = isMovie
+    const results = isMovie
       ? (result.results as MovieSearchItem[])
       : (result.results as TvShowSearchItem[]);
-
-    //sort by vote count: assume that the most popular result is the correct one
-    results = results.sort(
-      (a, b) => Number(b.vote_count) - Number(a.vote_count),
-    );
 
     // continue with best result
     const bestResult = results[0];

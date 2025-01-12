@@ -51,6 +51,23 @@ export type ActivityFromDummyData = Omit<EnrichedActivity, "date"> & {
 
 // API Response schema
 
+export type MovieSearchItem = {
+  adult: boolean;
+  backdrop_path: string | null;
+  genre_ids: number[];
+  id: number;
+  original_language: string;
+  original_title: string;
+  overview: string;
+  popularity: number;
+  poster_path: string | null;
+  release_date: string;
+  title: string;
+  video: boolean;
+  vote_average: number;
+  vote_count: number;
+}
+
 export const MovieSearchSchema = z.object({
   adult: z.boolean().default(true),
   backdrop_path: z.string().nullable(),
@@ -102,7 +119,7 @@ export const ApiResponseSchemaTvShowSearch = z.object({
   total_results: z.number().default(0),
 });
 
-export type MovieSearchItem = z.infer<typeof MovieSearchSchema>;
+// export type MovieSearchItem = z.infer<typeof MovieSearchSchema>;
 export type MovieApiResponse = z.infer<typeof ApiResponseSchemaMovieSearch>;
 
 export type TvShowSearchItem = z.infer<typeof TvShowSearchSchema>;

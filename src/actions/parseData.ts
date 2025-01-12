@@ -107,10 +107,23 @@ export default async function parseData(file: File, errorMessages: Errors) {
 
     if (parsedCsvData.meta.aborted) throw errorMessages.parsingAborted;
 
+    // construct an object that counts language codes
+
+    const countryCounter: Record<string, number> = {};
+
     // clean up the data and check if item is a movie or tv show
     const filteredData = parsedCsvData.data.flatMap((row) => {
       // skip columns that have data for "Supplemental Video Type" (indicating that it is a trailer or teaser)
       if (row["Supplemental Video Type"] !== "") return [];
+
+      const countryCode = row["Country"].split("(")[0].toLowerCase().trim();
+
+      // add the country code to lanuages object
+      if (countryCounter[countryCode]) {
+        countryCounter[countryCode]++;
+      } else {
+        countryCounter[countryCode] = 1;
+      }
 
       // ckeck if movie or tv show - assumption: if the title has more than 2 colons, it is a tv show
       // example: "Breaking Bad: Season 1: Pilot"
@@ -124,6 +137,7 @@ export default async function parseData(file: File, errorMessages: Errors) {
         date: row["Start Time"],
         duration: row["Duration"],
       };
+
       return transformedRow;
     });
 
@@ -142,7 +156,12 @@ export default async function parseData(file: File, errorMessages: Errors) {
       throw errorMessages.noValidData;
     }
 
-    return { data: validatedData, error: null };
+    // find language with highest count in the object
+    const language = Object.keys(countryCounter).reduce((a, b) =>
+      countryCounter[a] > countryCounter[b] ? a : b,
+    );
+
+    return { data: { validatedData, language }, error: null };
   } catch (error) {
     const errorMessage = getErrorMessage(error);
     return { data: null, error: errorMessage };
