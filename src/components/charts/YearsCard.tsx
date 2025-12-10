@@ -120,12 +120,36 @@ export default function YearsCard({ activityData, className }: YearCardProps) {
               tickLine={false}
               tickMargin={10}
               axisLine={false}
-              //   tickFormatter={(value) => value.slice(0, 3)}
+              // tickFormatter={(value) => value.slice(0, 3)}
             />
 
             <ChartTooltip
               cursor={false}
-              content={<ChartTooltipContent hideLabel />}
+              content={
+                <ChartTooltipContent
+                  hideLabel
+                  formatter={(value, name) => (
+                    <div className="text-muted-foreground flex min-w-[130px] items-center gap-2 text-xs">
+                      <div
+                        className="h-2.5 w-2.5 shrink-0 rounded-[2px]"
+                        style={{
+                          backgroundColor:
+                            chartConfig[name as keyof typeof chartConfig]
+                              ?.color,
+                        }}
+                      />
+                      {/* {chartConfig[name as keyof typeof chartConfig]?.label ||
+                        name} */}
+                      <div className="text-foreground ml-auto flex items-baseline gap-0.5 font-mono font-medium tabular-nums">
+                        {value}
+                        <span className="text-muted-foreground pl-1 font-normal">
+                          {t("chartLabel")}
+                        </span>
+                      </div>
+                    </div>
+                  )}
+                />
+              }
             />
             <Bar
               dataKey="duration"

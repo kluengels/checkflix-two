@@ -79,11 +79,11 @@ export default function GenresCard({
 
         // sort decending by count
         .sort((a, b) => b.count - a.count)
-        
+
         // assing a color to each genre
         .map((item, index) => ({
           ...item,
-          fill: `hsl(var(--chart-${index + 1}))`,
+          fill: `var(--chart-${index + 1})`,
         }))
     );
   }, [genreMap]);
@@ -129,7 +129,26 @@ export default function GenresCard({
           <PieChart>
             <ChartTooltip
               cursor={false}
-              content={<ChartTooltipContent hideLabel className="w-[180px]" />}
+              content={
+                <ChartTooltipContent
+                  hideLabel
+                  className="w-[180px]"
+                  formatter={(value, name, item) => (
+                    <div className="text-muted-foreground flex min-w-[130px] items-center gap-2 text-xs">
+                      <div
+                        className="h-2.5 w-2.5 shrink-0 rounded-[2px]"
+                        style={{
+                          backgroundColor: item.payload.fill,
+                        }}
+                      />
+                      {name}
+                      <div className="text-foreground ml-auto flex items-baseline gap-0.5 font-mono font-medium tabular-nums">
+                        {value}
+                      </div>
+                    </div>
+                  )}
+                />
+              }
             />
             <Pie
               data={chartData}
@@ -184,7 +203,7 @@ export default function GenresCard({
         <Link
           href={isMovie ? "/movies" : "/series"}
           aria-label={isMovie ? t("linkTextMovies") : t("linkTextTv")}
-          className="flex items-center text-primary hover:cursor-pointer hover:underline hover:underline-offset-2"
+          className="text-primary flex items-center hover:cursor-pointer hover:underline hover:underline-offset-2"
         >
           <BiChevronsRight className="h-8 w-8" />
           {isMovie ? t("linkTextMovies") : t("linkTextTv")}

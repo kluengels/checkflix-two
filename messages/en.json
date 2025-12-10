@@ -1,7 +1,6 @@
 {
   "HomePage": {
     "title": "Unlock your Netflix stats",
-
     "subtitle": "If you are a Netflix user, you most likely spent many hours or even days on the platform. But by default, the streaming platform doesn't give you many details about your viewing activities. That is why I created Checkflix. The free tool analyzes your Netflix data securely on your device.",
     "Tutorial": {
       "title": "How it works",
@@ -53,7 +52,6 @@
   },
   "Footer": {
     "imprint": "Imprint",
-
     "privacy": "Privacy Policy",
     "love": "made with <heart></heart> in Cologne"
   },
@@ -126,7 +124,8 @@
     "topSeries": {
       "title": "Your all-time favorit is",
       "description": "with {count, plural, =1 { # hour } other { # hours } }  watched.",
-      "linkText": "Check out the analysis of all TV shows"
+      "linkText": "Check out the analysis of all TV shows",
+      "hours": "hours"
     }
   },
   "Movies": {
@@ -210,7 +209,6 @@
       "submit": "Something went wrong while submitting the form. Please try again later."
     },
     "successContact": "Thank you for your message. I will answer your request as soon as possible.",
-
     "terms": {
       "descriptionContact": "By submitting this form, you agree that the information you provide will be stored and processed according to the <privacylink>privacy policy</privacylink>.",
       "label": "Terms and conditions",
@@ -296,7 +294,6 @@
       "storagePeriod": "until browser is closed",
       "technologies": "Session Storage"
     },
-
     "marketing": {
       "description": "Used to show visitors relevant advertisements.",
       "name": "Marketing"
@@ -307,7 +304,6 @@
     },
     "notUsed": "We do not use this kind of cookies or tools.",
     "openButton": "Privacy Settings",
-
     "privacy": "Privacy policy",
     "rejectAll": "Reject all",
     "services": "Services",

@@ -1,7 +1,6 @@
 {
   "HomePage": {
     "title": "Was Netflix vor dir verbirgt",
-
     "Features": {
       "calender": "An welchen Tagen du am meisten schaust",
       "genres": "Genres, die du magst",
@@ -99,7 +98,7 @@
     "months": {
       "descriptionAllYears": "Am meisten guckst du im",
       "descriptionYear": "{activeYear} hast du am meisten geguckt im",
-      "hours": "Std.",
+      "hours": "{count, plural, =1 {# Stunde} other {# Stunden}}",
       "total": "Gesamt"
     },
     "noData": {
@@ -107,7 +106,7 @@
       "title": "Keine Daten gefunden"
     },
     "time": {
-      "chartLabel": "Std",
+      "chartLabel": "Stunden",
       "description": "auf Netflix verbracht seit {firstMonth} {firstYear}.",
       "head": "Du hast",
       "inDays": "{count, plural, =1 {Das ist ein Tag!} other {Das sind {viewTimeDays} Tage!}}",
@@ -116,7 +115,8 @@
     "topSeries": {
       "description": "mit {count, plural, =1 { # geguckter Stunde} other { # geguckten Stunden} }.",
       "linkText": "Hier geht's zu allen Serien",
-      "title": "Dein absoluter Favorit ist"
+      "title": "Dein absoluter Favorit ist",
+      "hours": "Stunden"
     },
     "users": {
       "description": "{count, plural, =1 {ist} other {sind}} mit deinem Netflix-Konto verknüpft.",
@@ -126,7 +126,7 @@
     "weekdays": {
       "descriptionAllYears": "ist der Wochentag, an dem du am meisten streamst.",
       "descriptionYear": "war der Wochentag im Jahr {activeYear}, an dem du am meisten gestreamt hast.",
-      "hours": "{count, plural, =1 {Std.} other {Std.}}",
+      "hours": "{count, plural, =1 {Stunde} other {Stunden}}",
       "title": "Wochentags",
       "total": "Gesamt"
     },

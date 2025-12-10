@@ -61,7 +61,7 @@ export default function TopSeriesCard({
   // set color for the labels in chart
   const chartConfig = {
     label: {
-      color: "(var(--background)",
+      color: "var(--color-background)",
     },
   } satisfies ChartConfig;
 
@@ -118,7 +118,10 @@ export default function TopSeriesCard({
                             <span className="font-bold">
                               {hoursFromSeconds(Number(value))}
                             </span>{" "}
-                            hours
+                            <span className="pl-1">
+                              {" "}
+                              {t("hours", { count: Number(value) })}
+                            </span>
                           </div>
                         </div>
                       );
@@ -130,14 +133,14 @@ export default function TopSeriesCard({
               <Bar
                 dataKey="duration"
                 layout="vertical"
-                fill="var(--color-chart-1)"
+                fill="var(--chart-1)"
                 radius={4}
               >
                 <LabelList
                   dataKey="title"
                   position="insideLeft"
                   offset={8}
-                  className="fill-[var(--background)] sm:block"
+                  className="fill-[var(--color-background)] sm:block"
                   fontSize={12}
                   formatter={(value: string) => {
                     if (value === topSeries[0].title) {

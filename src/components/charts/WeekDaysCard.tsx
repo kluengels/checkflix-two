@@ -3,7 +3,6 @@ import { useLocale, useTranslations } from "next-intl";
 import { useMemo } from "react";
 import { Locale } from "@/i18n/routing";
 
-
 import { hoursFromSeconds } from "@/utils/transformDuration";
 import SelectYear from "../selects/SelectYear";
 import { cn } from "@/lib/utils";
@@ -119,7 +118,6 @@ export default function WeekdaysCard({
     return { chartData: soretedWithWeekDayString, years };
   }, [activityData, user, locale]);
 
-
   // filter chart data by selected year
   const filteredChartData = useMemo(() => {
     return filterDataByYear(chartData, activeYear);
@@ -148,7 +146,6 @@ export default function WeekdaysCard({
   );
   if (!hasData) return null;
 
- 
   return (
     <Card className={cn("w-full", className)}>
       {/* Header renders the most popular weekday in a given year and a year selector */}
@@ -188,29 +185,33 @@ export default function WeekdaysCard({
                       <>
                         {/* Display duration in hours for each year */}
                         <div
-                          className="h-2.5 w-2.5 shrink-0 rounded-[2px] bg-[--color-bg]"
-                          style={
-                            {
-                              "--color-bg": `var(--color-${name})`,
-                            } as React.CSSProperties
-                          }
+                          className="h-2.5 w-2.5 shrink-0 rounded-[2px]"
+                          style={{
+                            backgroundColor:
+                              chartConfig[name as keyof typeof chartConfig]
+                                ?.color,
+                          }}
                         />
                         {chartConfig[name as keyof typeof chartConfig]?.label ||
                           name}
-                        <div className="ml-auto flex items-baseline gap-0.5 font-mono font-medium tabular-nums text-foreground">
+                        <div className="text-foreground ml-auto flex items-baseline gap-0.5 font-mono font-medium tabular-nums">
                           {value}
-                          <span className="font-normal text-muted-foreground">
+                          <span className="text-muted-foreground font-normal">
                             {t("hours", { count: Number(value) })}
                           </span>
                         </div>
                         {/* Show total duration for all years */}
 
                         {index === years.length - 1 && (
-                          <div className="mt-1.5 flex basis-full items-center border-t pt-1.5 text-xs font-medium text-foreground">
+                          <div className="text-foreground mt-1.5 flex basis-full items-center border-t pt-1.5 text-xs font-medium">
                             {t("total")}
-                            <div className="ml-auto flex items-baseline gap-0.5 font-mono font-medium tabular-nums text-foreground">
-                              {calulateTotalDuration(item.payload)}
-                              <span className="font-normal text-muted-foreground">
+                            <div className="text-foreground ml-auto flex items-baseline gap-0.5 font-mono font-medium tabular-nums">
+                              <span>
+                                {" "}
+                                {calulateTotalDuration(item.payload)}
+                              </span>
+
+                              <span className="text-muted-foreground ml-1 font-normal">
                                 {t("hours", {
                                   count: calulateTotalDuration(item.payload),
                                 })}
@@ -245,7 +246,6 @@ export default function WeekdaysCard({
   );
 }
 
-
 // helper functions
 const filterDataByYear = (
   data: WeekdayChartData[],
@@ -259,7 +259,6 @@ const filterDataByYear = (
   }));
 };
 
-
 const createChartConfig = (
   years: number[],
 ): { [key: number]: { label: string; color: string } } => {
@@ -267,7 +266,7 @@ const createChartConfig = (
   years.forEach((year, index) => {
     config[year] = {
       label: year.toString(),
-      color: `hsl(var(--chart-${index + 1}))`,
+      color: `var(--chart-${index + 1})`,
     };
   });
   return config;

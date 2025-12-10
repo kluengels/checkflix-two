@@ -98,7 +98,6 @@ export default function MonthCard({ activityData, className }: MonthCardProps) {
     // sort data by month
     const sortedByMonth = data.sort((a, b) => a.month - b.month);
 
-
     // replace day number with weekday name
     const sortedWithMonthString: MonthChartData[] = sortedByMonth.map(
       (item) => ({
@@ -162,7 +161,7 @@ export default function MonthCard({ activityData, className }: MonthCardProps) {
       </CardHeader>
 
       {/* Card Content shows the stacked area chart */}
-      <CardContent className="pb-0 pt-10">
+      <CardContent className="pt-10 pb-0">
         <ChartContainer config={chartConfig} className="mb-6">
           <AreaChart
             accessibilityLayer
@@ -198,31 +197,33 @@ export default function MonthCard({ activityData, className }: MonthCardProps) {
                       <>
                         {/*Show watchtime in given month for every year */}
                         <div
-                          className="h-2.5 w-2.5 shrink-0 rounded-[2px] bg-[--color-bg]"
-                          style={
-                            {
-                              "--color-bg": `var(--color-${name})`,
-                            } as React.CSSProperties
-                          }
+                          className="h-2.5 w-2.5 shrink-0 rounded-[2px]"
+                          style={{
+                            backgroundColor:
+                              chartConfig[name as keyof typeof chartConfig]
+                                ?.color,
+                          }}
                         />
                         {chartConfig[name as keyof typeof chartConfig]?.label ||
                           name}
-                        <div className="ml-auto flex items-baseline gap-0.5 font-mono font-medium tabular-nums text-foreground">
+                        <div className="text-foreground ml-auto flex items-baseline gap-0.5 font-mono font-medium tabular-nums">
                           {value}
-                          <span className="font-normal text-muted-foreground">
-                            {t("hours")}
+                          <span className="text-muted-foreground font-normal pl-1">
+                            {t("hours", { count: Number(value) })}
                           </span>
                         </div>
 
                         {/*Show total for years */}
 
                         {index === years.length - 1 && (
-                          <div className="mt-1.5 flex basis-full items-center border-t pt-1.5 text-xs font-medium text-foreground">
+                          <div className="text-foreground mt-1.5 flex basis-full items-center border-t pt-1.5 text-xs font-medium">
                             {t("total")}
-                            <div className="ml-auto flex items-baseline gap-0.5 font-mono font-medium tabular-nums text-foreground">
+                            <div className="text-foreground ml-auto flex items-baseline gap-0.5 font-mono font-medium tabular-nums">
                               {calulateTotalDuration(item.payload)}
-                              <span className="font-normal text-muted-foreground">
-                                {t("hours")}
+                              <span className="text-muted-foreground font-normal">
+                                {t("hours", {
+                                  count: calulateTotalDuration(item.payload),
+                                })}
                               </span>
                             </div>
                           </div>
@@ -276,7 +277,7 @@ const createChartConfig = (
   years.forEach((year, index) => {
     config[year] = {
       label: year.toString(),
-      color: `hsl(var(--chart-${index + 1}))`,
+      color: `var(--chart-${index + 1})`,
     };
   });
   return config;

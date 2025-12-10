@@ -24,21 +24,6 @@
   --color-border: #ebebeb;
   --color-input: #ebebeb;
   --color-ring: #22a0a0;
-  --color-chart-1: #4aa2b4;
-  --color-chart-2: #cc0e94;
-  --color-chart-3: #cc4810;
-  --color-chart-4: #10cc48;
-  --color-chart-5: #ffbb4e;
-  --color-chart-6: #edb610;
-  --color-chart-7: #5281e0;
-  --color-chart-8: #7139df;
-  --color-chart-9: #e21de2;
-  --color-chart-10: #e6664c;
-  --color-chart-11: #73ac39;
-  --color-chart-12: #2ac8ad;
-  --color-chart-13: #439ac6;
-  --color-chart-14: #f98521;
-  --color-chart-15: #c62a51;
   --color-swiper-navigation-color: #ff00a2;
 
   /*Font*/
@@ -70,21 +55,6 @@
   --color-border: #525252;
   --color-input: #3d3d3d;
   --color-ring: #1c7676;
-  --color-chart-1: #00d8f8;
-  --color-chart-2: #cc0e94;
-  --color-chart-3: #cc4810;
-  --color-chart-4: #10cc48;
-  --color-chart-5: #ffbb4e;
-  --color-chart-6: #edb610;
-  --color-chart-7: #5281e0;
-  --color-chart-8: #7139df;
-  --color-chart-9: #e21de2;
-  --color-chart-10: #e6664c;
-  --color-chart-11: #73ac39;
-  --color-chart-12: #2ac8ad;
-  --color-chart-13: #439ac6;
-  --color-chart-14: #f98521;
-  --color-chart-15: #c62a51;
 }
 
 @utility rounded-lg {
@@ -123,6 +93,41 @@
 }
 
 @layer base {
+  :root {
+    --chart-1: #4aa2b4;
+    --chart-2: #cc0e94;
+    --chart-3: #cc4810;
+    --chart-4: #10cc48;
+    --chart-5: #ffbb4e;
+    --chart-6: #edb610;
+    --chart-7: #5281e0;
+    --chart-8: #7139df;
+    --chart-9: #e21de2;
+    --chart-10: #e6664c;
+    --chart-11: #73ac39;
+    --chart-12: #2ac8ad;
+    --chart-13: #439ac6;
+    --chart-14: #f98521;
+    --chart-15: #c62a51;
+  }
+  .dark {
+    --chart-1: #00d8f8;
+    --chart-2: #cc0e94;
+    --chart-3: #cc4810;
+    --chart-4: #10cc48;
+    --chart-5: #ffbb4e;
+    --chart-6: #edb610;
+    --chart-7: #5281e0;
+    --chart-8: #7139df;
+    --chart-9: #e21de2;
+    --chart-10: #e6664c;
+    --chart-11: #73ac39;
+    --chart-12: #2ac8ad;
+    --chart-13: #439ac6;
+    --chart-14: #f98521;
+    --chart-15: #c62a51;
+  }
+
   * {
     @apply border-border;
   }

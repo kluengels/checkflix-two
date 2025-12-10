@@ -133,7 +133,7 @@ export default function CalenderCard({
 
         {/* Card Content renders chart, initial direction depends on screen size */}
         <CardContent
-          className={cn("flex h-[300px] justify-center pb-0", {
+          className={cn("flex h-[300px] justify-start pb-0", {
             "h-[600px]": chartVertical,
           })}
         >
@@ -142,20 +142,20 @@ export default function CalenderCard({
             data={uniqueDaysData}
             from={`${filteredYear}-01-01`}
             to={`${filteredYear}-12-31`}
-            emptyColor="hsl(var(--card))"
+            emptyColor="var(--color-card)"
             tooltip={CalTooltip}
             colors={[
-              "hsl(var(--chart-2) / 0.4)",
-              "hsl(var(--chart-2) / 0.6)",
-              "hsl(var(--chart-2) / 0.8)",
-              "hsl(var(--chart-2))",
+              "color-mix(in srgb, var(--chart-2) 40%, white)",
+              "color-mix(in srgb, var(--chart-2) 60%, white)",
+              "color-mix(in srgb, var(--chart-2) 80%, white)",
+              "var(--chart-2 )",
             ]}
             margin={{ top: 40, right: 40, bottom: 40, left: 40 }}
             yearSpacing={40}
-            monthBorderColor="hsl(var(--muted))"
+            monthBorderColor="var(--color-muted)"
             theme={theme} // custom theme as defined below
             dayBorderWidth={2}
-            dayBorderColor="hsl(var(--muted))"
+            dayBorderColor="var(--color-muted)"
             legends={[
               {
                 anchor: "bottom-right",
@@ -214,14 +214,14 @@ const CalTooltip = ({ day, value, color }: CalendarTooltipProps) => {
 const theme = {
   text: {
     fontSize: 11,
-    fill: "hsl(var(--foreground))",
+    fill: "var(--color-foreground)",
   },
   tooltip: {
     wrapper: {},
     container: {
-      background: "hsl(var(--background))",
-      color: "hls(var(--muted-foreground))",
-      borderColor: "hsl(var(--border) / 0.5)",
+      background: "var(--color-background)",
+      color: "var(--color-muted-foreground)",
+      borderColor: "color-mix(in srgb, var(--color-border) 50%, white)",
       borderStyle: "solid",
       borderWidth: 1,
 
@@ -246,7 +246,7 @@ const createChartConfig = (
   years.forEach((year, index) => {
     config[year] = {
       label: year.toString(),
-      color: `hsl(var(--chart-${index + 1}))`,
+      color: `var(--color-chart-${index + 1})`,
     };
   });
   return config;
