@@ -276,7 +276,7 @@ const createChartConfig = (
   years.forEach((year, index) => {
     config[year] = {
       label: year.toString(),
-      color: `hsl(var(--chart-${index + 1}))`,
+      color: `var(--color-chart-${index + 1})`,
     };
   });
   return config;

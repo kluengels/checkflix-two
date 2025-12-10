@@ -127,7 +127,7 @@ export default function TopSeriesCard({ activityData, className }: TopSeriesCard
               />
               <Bar
                 dataKey="duration"
-                fill="hsl(var(--chart-1))"
+                fill="var(--color-chart-1)"
                 radius={4}
               >
                 <LabelList

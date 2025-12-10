@@ -145,17 +145,17 @@ export default function CalenderCard({
             emptyColor="hsl(var(--card))"
             tooltip={CalTooltip}
             colors={[
-              "hsl(var(--chart-2) / 0.4)",
-              "hsl(var(--chart-2) / 0.6)",
-              "hsl(var(--chart-2) / 0.8)",
-              "hsl(var(--chart-2))",
+              "color-mix(in srgb, var(--color-chart-2) 40%, transparent)",
+              "color-mix(in srgb, var(--color-chart-2) 60%, transparent)",
+              "color-mix(in srgb, var(--color-chart-2) 80%, transparent)",
+              "var(--color-chart-2)",
             ]}
             margin={{ top: 40, right: 40, bottom: 40, left: 40 }}
             yearSpacing={40}
-            monthBorderColor="hsl(var(--muted))"
+            monthBorderColor="var(--color-muted)"
             theme={theme} // custom theme as defined below
             dayBorderWidth={2}
-            dayBorderColor="hsl(var(--muted))"
+            dayBorderColor="var(--color-muted)"
             legends={[
               {
                 anchor: "bottom-right",
@@ -219,9 +219,9 @@ const theme = {
   tooltip: {
     wrapper: {},
     container: {
-      background: "hsl(var(--background))",
-      color: "hls(var(--muted-foreground))",
-      borderColor: "hsl(var(--border) / 0.5)",
+      background: "var(--color-background)",
+      color: "var(--color-muted-foreground)",
+      borderColor: "var(--color-border / 0.5)",
       borderStyle: "solid",
       borderWidth: 1,
 
