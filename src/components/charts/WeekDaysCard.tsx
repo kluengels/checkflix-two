@@ -3,7 +3,6 @@ import { useLocale, useTranslations } from "next-intl";
 import { useMemo } from "react";
 import { Locale } from "@/i18n/routing";
 
-
 import { hoursFromSeconds } from "@/utils/transformDuration";
 import SelectYear from "../selects/SelectYear";
 import { cn } from "@/lib/utils";
@@ -119,7 +118,6 @@ export default function WeekdaysCard({
     return { chartData: soretedWithWeekDayString, years };
   }, [activityData, user, locale]);
 
-
   // filter chart data by selected year
   const filteredChartData = useMemo(() => {
     return filterDataByYear(chartData, activeYear);
@@ -148,7 +146,6 @@ export default function WeekdaysCard({
   );
   if (!hasData) return null;
 
- 
   return (
     <Card className={cn("w-full", className)}>
       {/* Header renders the most popular weekday in a given year and a year selector */}
@@ -195,24 +192,30 @@ export default function WeekdaysCard({
                             } as React.CSSProperties
                           }
                         />
-                        {chartConfig[name as keyof typeof chartConfig]?.label ||
-                          name}
-                        <div className="ml-auto flex items-baseline gap-0.5 font-mono font-medium tabular-nums text-foreground">
+                        {chartConfig[Number(name)]?.label || name}
+                        <div className="text-foreground ml-auto flex items-baseline gap-0.5 font-mono font-medium tabular-nums">
                           {value}
-                          <span className="font-normal text-muted-foreground">
+                          <span className="text-muted-foreground font-normal">
                             {t("hours", { count: Number(value) })}
                           </span>
                         </div>
                         {/* Show total duration for all years */}
 
                         {index === years.length - 1 && (
-                          <div className="mt-1.5 flex basis-full items-center border-t pt-1.5 text-xs font-medium text-foreground">
+                          <div className="text-foreground mt-1.5 flex basis-full items-center border-t pt-1.5 text-xs font-medium">
                             {t("total")}
-                            <div className="ml-auto flex items-baseline gap-0.5 font-mono font-medium tabular-nums text-foreground">
-                              {calulateTotalDuration(item.payload)}
-                              <span className="font-normal text-muted-foreground">
+                            <div className="text-foreground ml-auto flex items-baseline gap-0.5 font-mono font-medium tabular-nums">
+                              {calulateTotalDuration(
+                                item.payload as Record<string, number | string>,
+                              )}
+                              <span className="text-muted-foreground font-normal">
                                 {t("hours", {
-                                  count: calulateTotalDuration(item.payload),
+                                  count: calulateTotalDuration(
+                                    item.payload as Record<
+                                      string,
+                                      number | string
+                                    >,
+                                  ),
                                 })}
                               </span>
                             </div>
@@ -245,7 +248,6 @@ export default function WeekdaysCard({
   );
 }
 
-
 // helper functions
 const filterDataByYear = (
   data: WeekdayChartData[],
@@ -258,7 +260,6 @@ const filterDataByYear = (
     [year]: item[year],
   }));
 };
-
 
 const createChartConfig = (
   years: number[],

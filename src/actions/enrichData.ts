@@ -66,6 +66,7 @@ export default async function enrichData(
       if (error || !dataFromImdb) {
         enrichedData.push(item);
       } else {
+        //@ts-ignore
         enrichedData.push({ ...item, ...dataFromImdb });
       }
     }

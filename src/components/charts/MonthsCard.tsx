@@ -205,7 +205,7 @@ export default function MonthCard({ activityData, className }: MonthCardProps) {
                             } as React.CSSProperties
                           }
                         />
-                        {chartConfig[name as keyof typeof chartConfig]?.label ||
+                        {chartConfig[name as unknown as keyof typeof chartConfig]?.label ||
                           name}
                         <div className="ml-auto flex items-baseline gap-0.5 font-mono font-medium tabular-nums text-foreground">
                           {value}
@@ -220,7 +220,7 @@ export default function MonthCard({ activityData, className }: MonthCardProps) {
                           <div className="mt-1.5 flex basis-full items-center border-t pt-1.5 text-xs font-medium text-foreground">
                             {t("total")}
                             <div className="ml-auto flex items-baseline gap-0.5 font-mono font-medium tabular-nums text-foreground">
-                              {calulateTotalDuration(item.payload)}
+                              {item.payload && calulateTotalDuration(item.payload as Record<string, number | string>)}
                               <span className="font-normal text-muted-foreground">
                                 {t("hours")}
                               </span>

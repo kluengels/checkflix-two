@@ -111,7 +111,7 @@ export default function TopSeriesCard({ activityData, className }: TopSeriesCard
                     formatter={(value, _unit, item) => {
                       return (
                         <div className="flex flex-col">
-                          <div className="font-bold">{item.payload.title}</div>
+                          <div className="font-bold">{item.payload?.title as string}</div>
                           <div className="py-0">
                             <span className="font-bold">
                               {hoursFromSeconds(Number(value))}
@@ -127,7 +127,6 @@ export default function TopSeriesCard({ activityData, className }: TopSeriesCard
               />
               <Bar
                 dataKey="duration"
-                layout="vertical"
                 fill="hsl(var(--chart-1))"
                 radius={4}
               >
@@ -137,17 +136,12 @@ export default function TopSeriesCard({ activityData, className }: TopSeriesCard
                   offset={8}
                   className="fill-[--color-label] sm:block"
                   fontSize={12}
-                  formatter={(value: string) => {
-                    if (value === topSeries[0].title) {
-                      let label = "";
+                  formatter={(value) => {
+                    if (typeof value === "string" && value === topSeries[0].title) {
                       const slice = value.slice(0, 20);
-                      label += slice;
-
-                      if (slice.length < value.length) {
-                        label += "...";
-                      }
-                      return label;
+                      return slice.length < value.length ? slice + "..." : slice;
                     }
+                    return "";
                   }}
                 />
                 {/* <LabelList

@@ -138,7 +138,6 @@ export default function GenresCard({
               paddingAngle={2}
               innerRadius={60}
               strokeWidth={5}
-              activeIndex={activeIndexArray}
               activeShape={({
                 outerRadius = 0,
                 ...props
