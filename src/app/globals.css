@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @plugin "tailwindcss-animate";
 
-@custom-variant dark (&:where([data-theme="dark"] *));
+/* @custom-variant dark (&:where([data-theme="dark"] *)); */
 
 @theme {
   /* Colors */
@@ -50,7 +50,7 @@
   --spacing-innerfull: calc(100dvh - 9rem);
 }
 
-[data-theme="dark"] {
+.dark {
   --color-background: #191925;
   --color-foreground: #ffffff;
   --color-card: #191925;

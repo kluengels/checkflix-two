@@ -88,7 +88,7 @@ export default function YearsCard({ activityData, className }: YearCardProps) {
   const chartConfig = {
     duration: {
       label: t("chartLabel"),
-      color: "var(--color-chart-1)",
+      color: "var(--chart-1)",
     },
   } satisfies ChartConfig;
 
@@ -130,7 +130,7 @@ export default function YearsCard({ activityData, className }: YearCardProps) {
             <Bar
               dataKey="duration"
               //   name="Hours Watched:&nbsp;"
-              fill="var(--color-chart-1)"
+              fill="var(--chart-1)"
               radius={8}
             />
           </BarChart>

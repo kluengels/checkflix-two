@@ -1,4 +1,3 @@
-
 import { useData } from "@/context/DataProvider";
 import { EnrichedActivity } from "@/types/customTypes";
 import { useTranslations } from "next-intl";
@@ -40,7 +39,10 @@ interface TopSeriesCardProps {
 /**
  * Redners a card with the most viewed tv show, followed by a bar chart showing the top 5 tv shows by duration
  */
-export default function TopSeriesCard({ activityData, className }: TopSeriesCardProps) {
+export default function TopSeriesCard({
+  activityData,
+  className,
+}: TopSeriesCardProps) {
   const t = useTranslations("Dashboard.topSeries");
   const { user } = useData();
   const showAllUsers = user === "all";
@@ -59,7 +61,7 @@ export default function TopSeriesCard({ activityData, className }: TopSeriesCard
   // set color for the labels in chart
   const chartConfig = {
     label: {
-      color: "hsl(var(--background))",
+      color: "(var(--background)",
     },
   } satisfies ChartConfig;
 
@@ -71,8 +73,8 @@ export default function TopSeriesCard({ activityData, className }: TopSeriesCard
       <CardHeader>
         <CardTitle className="">
           <TmdbImage item={topSeries[0]} className="w-full" />
-          <p className="mb-0 mt-4 text-base">{t("title")}</p>
-          <h2 className="text-pretty text-5xl sm:text-6xl">
+          <p className="mt-4 mb-0 text-base">{t("title")}</p>
+          <h2 className="text-5xl text-pretty sm:text-6xl">
             {topSeries[0]?.title}
           </h2>
         </CardTitle>
@@ -111,7 +113,7 @@ export default function TopSeriesCard({ activityData, className }: TopSeriesCard
                     formatter={(value, _unit, item) => {
                       return (
                         <div className="flex flex-col">
-                          <div className="font-bold">{item.payload?.title as string}</div>
+                          <div className="font-bold">{item.payload.title}</div>
                           <div className="py-0">
                             <span className="font-bold">
                               {hoursFromSeconds(Number(value))}
@@ -127,6 +129,7 @@ export default function TopSeriesCard({ activityData, className }: TopSeriesCard
               />
               <Bar
                 dataKey="duration"
+                layout="vertical"
                 fill="var(--color-chart-1)"
                 radius={4}
               >
@@ -134,14 +137,19 @@ export default function TopSeriesCard({ activityData, className }: TopSeriesCard
                   dataKey="title"
                   position="insideLeft"
                   offset={8}
-                  className="fill-[--color-label] sm:block"
+                  className="fill-[var(--background)] sm:block"
                   fontSize={12}
-                  formatter={(value) => {
-                    if (typeof value === "string" && value === topSeries[0].title) {
+                  formatter={(value: string) => {
+                    if (value === topSeries[0].title) {
+                      let label = "";
                       const slice = value.slice(0, 20);
-                      return slice.length < value.length ? slice + "..." : slice;
+                      label += slice;
+
+                      if (slice.length < value.length) {
+                        label += "...";
+                      }
+                      return label;
                     }
-                    return "";
                   }}
                 />
                 {/* <LabelList
@@ -160,7 +168,7 @@ export default function TopSeriesCard({ activityData, className }: TopSeriesCard
         <Link
           href="/series"
           aria-label="Find out more about your viewing habits"
-          className="flex items-center text-primary hover:cursor-pointer hover:underline hover:underline-offset-2"
+          className="text-primary flex items-center hover:cursor-pointer hover:underline hover:underline-offset-2"
         >
           <BiChevronsRight className="h-8 w-8" />
           {t("linkText")}{" "}
