@@ -59,7 +59,7 @@ export default function FormDropzone({ className }: { className?: string }) {
     }
     const { validatedData: parsedData, language } = data;
     if (!parsedData) {
-      setError(t("parsingerror", { message: parsedError }));
+      setError(t("parsingerror", { message: parsedError || "Parsing failed" }));
       setPending(false);
       return;
     }

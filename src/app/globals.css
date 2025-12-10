@@ -1,97 +1,136 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "tailwindcss-animate";
 
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 240 18% 12%;
-    --card: 0 0% 98%;
-    --card-foreground: 240 18% 12%;
-    --popover: 0 0% 92%;
-    --popover-foreground: 240 18% 12%;
-    --primary: 193 100% 20%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 310 52% 40%;
-    --secondary-foreground: 240 9% 98%;
-    --muted: 0 0% 96%;
-    --muted-foreground: 245 18% 24%;
-    --accent: 69 92% 51%;
-    --accent-foreground: 0 0% 25%;
-    --destructive: 359 100% 61%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 92%;
-    --input: 0 0% 92%;
-    --ring: 180 65% 38%;
-    --chart-1: 190 41% 50%;
-    --chart-2: 318 86% 43%;
-    --chart-3: 18 86% 43%;
-    --chart-4: 138 86% 43%;
-    --chart-5: 37 100% 65%;
-    --chart-6: 45 86% 50%;
-    --chart-7: 220 70% 60%;
-    --chart-8: 260 72% 55%;
-    --chart-9: 300 77% 50%;
-    --chart-10: 10 75% 60%;
-    --chart-11: 90 50% 45%;
-    --chart-12: 170 67% 47%;
-    --chart-13: 200 53% 52%;
-    --chart-14: 28 95% 55%;
-    --chart-15: 345 65% 47%;
-    --radius: 1rem;
-    --swiper-navigation-color: #ff00a2;
+/* @custom-variant dark (&:where([data-theme="dark"] *)); */
+
+@theme {
+  /* Colors */
+  --color-background: #ffffff;
+  --color-foreground: #191925;
+  --color-card: #fafafa;
+  --color-card-foreground: #191925;
+  --color-popover: #ebebeb;
+  --color-popover-foreground: #191925;
+  --color-primary: #015066;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #9b3189;
+  --color-secondary-foreground: #fafafa;
+  --color-muted: #f5f5f5;
+  --color-muted-foreground: #343248;
+  --color-accent: #d2f508;
+  --color-accent-foreground: #404040;
+  --color-destructive: #ff383c;
+  --color-destructive-foreground: #ffffff;
+  --color-border: #ebebeb;
+  --color-input: #ebebeb;
+  --color-ring: #22a0a0;
+  --color-chart-1: #4aa2b4;
+  --color-chart-2: #cc0e94;
+  --color-chart-3: #cc4810;
+  --color-chart-4: #10cc48;
+  --color-chart-5: #ffbb4e;
+  --color-chart-6: #edb610;
+  --color-chart-7: #5281e0;
+  --color-chart-8: #7139df;
+  --color-chart-9: #e21de2;
+  --color-chart-10: #e6664c;
+  --color-chart-11: #73ac39;
+  --color-chart-12: #2ac8ad;
+  --color-chart-13: #439ac6;
+  --color-chart-14: #f98521;
+  --color-chart-15: #c62a51;
+  --color-swiper-navigation-color: #ff00a2;
+
+  /*Font*/
+  --radius: 1rem;
+  --font-display: "Carter One", cursive;
+  --font-sans: "Nunito", sans-serif;
+
+  /* Heights */
+  --spacing-innerfull: calc(100dvh - 9rem);
+}
+
+.dark {
+  --color-background: #191925;
+  --color-foreground: #ffffff;
+  --color-card: #191925;
+  --color-card-foreground: #f2f2f2;
+  --color-popover: #171717;
+  --color-popover-foreground: #f2f2f2;
+  --color-primary: #00d8f8;
+  --color-primary-foreground: #191925;
+  --color-secondary: #ff00a2;
+  --color-secondary-foreground: #191925;
+  --color-muted: #404040;
+  --color-muted-foreground: #f5f5f5;
+  --color-accent: #999f5f;
+  --color-accent-foreground: #f5f5f5;
+  --color-destructive: #c20002;
+  --color-destructive-foreground: #ffffff;
+  --color-border: #525252;
+  --color-input: #3d3d3d;
+  --color-ring: #1c7676;
+  --color-chart-1: #00d8f8;
+  --color-chart-2: #cc0e94;
+  --color-chart-3: #cc4810;
+  --color-chart-4: #10cc48;
+  --color-chart-5: #ffbb4e;
+  --color-chart-6: #edb610;
+  --color-chart-7: #5281e0;
+  --color-chart-8: #7139df;
+  --color-chart-9: #e21de2;
+  --color-chart-10: #e6664c;
+  --color-chart-11: #73ac39;
+  --color-chart-12: #2ac8ad;
+  --color-chart-13: #439ac6;
+  --color-chart-14: #f98521;
+  --color-chart-15: #c62a51;
+}
+
+@utility rounded-lg {
+  border-radius: var(--radius);
+}
+@utility rounded-md {
+  border-radius: calc(var(--radius) - 2px);
+}
+@utility rounded-sm {
+  border-radius: calc(var(--radius) - 4px);
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
   }
-
-  .dark {
-    --background: 240 18% 12%;
-    --foreground: 0 0% 100%;
-    --card: 240 18% 12%;
-    --card-foreground: 0 0% 95%;
-    --popover: 0 0% 9%;
-    --popover-foreground: 0 0% 95%;
-    --primary: 188 94% 50%;
-    --primary-foreground: 240 18% 12%;
-    --secondary: 322 100% 50%;
-    --secondary-foreground: 240 18% 12%;
-    --muted: 0 0% 25%;
-    --muted-foreground: 0 0% 96%;
-    --accent: 66 25% 50%;
-    --accent-foreground: 0 0% 96%;
-    --destructive: 359 100% 38%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 32%;
-    --input: 0 0% 24%;
-    --ring: 180 65% 28%;
-    --chart-1: 188 94% 50%;
-    --chart-2: 318 86% 43%;
-    --chart-3: 18 86% 43%;
-    --chart-4: 138 86% 43%;
-    --chart-5: 37 100% 65%;
-    --chart-6: 45 86% 50%;
-    --chart-7: 220 70% 60%;
-    --chart-8: 260 72% 55%;
-    --chart-9: 300 77% 50%;
-    --chart-10: 10 75% 60%;
-    --chart-11: 90 50% 45%;
-    --chart-12: 170 67% 47%;
-    --chart-13: 200 53% 52%;
-    --chart-14: 28 95% 55%;
-    --chart-15: 345 65% 47%;
-    --swiper-navigation-color: #ff00a2;
+  to {
+    height: var(--radix-accordion-content-height);
   }
 }
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+@utility animate-accordion-down {
+  animation: accordion-down 0.2s ease-out;
+}
+@utility animate-accordion-up {
+  animation: accordion-up 0.2s ease-out;
+}
+
 @layer base {
   * {
     @apply border-border;
   }
   body {
-    @apply bg-background font-sans text-foreground;
-  }
-  .container {
-    @apply mx-auto px-4;
+    @apply bg-background text-foreground font-sans;
   }
   h1 {
-    @apply mb-6 text-left text-3xl sm:text-4xl md:text-5xl text-primary font-extrabold;
+    @apply text-primary mb-6 text-left text-3xl font-extrabold sm:text-4xl md:text-5xl;
   }
   h2 {
     @apply text-3xl font-bold md:text-3xl lg:text-4xl;
@@ -102,7 +141,13 @@
   p {
     @apply mt-2;
   }
+}
+
+@layer components {
+  .container {
+    @apply mx-auto px-4;
+  }
   .wp-block-list {
-    @apply list-disc ml-6;
+    @apply ml-6 list-disc;
   }
 }

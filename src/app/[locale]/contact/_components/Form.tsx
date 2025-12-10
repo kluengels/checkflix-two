@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
+import { z } from "zod";
 
 import sendMail from "../_server/sendMail";
 
@@ -38,33 +38,21 @@ export default function ContactForm() {
   const formSchema = z.object({
     name: z
       .string()
-      .min(2, {
-        message: t("username.minlength", { length: 2 }),
-      })
-      .max(50, {
-        message: t("username.maxlength", { length: 50 }),
-      }),
-    email: z.string().email({
-      message: t("email.invalid"),
-    }),
+      .min(2, t("username.minlength", { length: 2 }))
+      .max(50, t("username.maxlength", { length: 50 })),
+    email: z.string().email(t("email.invalid")),
 
     message: z
       .string()
-      .min(10, {
-        message: t("message.minlength", { length: 10 }),
-      })
-      .max(2000, {
-        message: t("message.maxlength", { length: 2000 }),
-      }),
+      .min(10, t("message.minlength", { length: 10 }))
+      .max(2000, t("message.maxlength", { length: 2000 })),
     security: z
-      .string({
-        required_error: t("security.required"),
-      })
+      .string()
+      .min(1, t("security.required"))
       .trim()
       .toLowerCase(),
     terms: z
       .boolean()
-      .default(false)
       .refine((value) => value, {
         message: t("terms.required"),
       }),
