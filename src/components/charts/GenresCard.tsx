@@ -4,7 +4,7 @@ import { Link, Locale } from "@/i18n/routing";
 import { useLocale, useTranslations } from "next-intl";
 
 import { Label, Pie, PieChart, Sector } from "recharts";
-import { PieSectorDataItem } from "recharts/types/polar/Pie";
+import { PieSectorShapeProps } from "recharts/types/polar/Pie";
 
 import {
   Card,
@@ -157,12 +157,19 @@ export default function GenresCard({
               paddingAngle={2}
               innerRadius={60}
               strokeWidth={5}
-              activeIndex={activeIndexArray}
-              activeShape={({
+              shape={({
                 outerRadius = 0,
+                index,
                 ...props
-              }: PieSectorDataItem) => (
-                <Sector {...props} outerRadius={outerRadius + 10} />
+              }: PieSectorShapeProps) => (
+                <Sector
+                  {...props}
+                  outerRadius={
+                    activeIndexArray.includes(index ?? -1)
+                      ? outerRadius + 10
+                      : outerRadius
+                  }
+                />
               )}
             >
               {/* Label is only shown if one genre is clearly the most popular */}

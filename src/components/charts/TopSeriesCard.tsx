@@ -130,29 +130,26 @@ export default function TopSeriesCard({
                   />
                 }
               />
-              <Bar
-                dataKey="duration"
-                layout="vertical"
-                fill="var(--chart-1)"
-                radius={4}
-              >
+              <Bar dataKey="duration" fill="var(--chart-1)" radius={4}>
                 <LabelList
                   dataKey="title"
                   position="insideLeft"
                   offset={8}
                   className="fill-[var(--color-background)] sm:block"
                   fontSize={12}
-                  formatter={(value: string) => {
+                  formatter={(value) => {
                     if (value === topSeries[0].title) {
+                      const text = String(value);
                       let label = "";
-                      const slice = value.slice(0, 20);
+                      const slice = text.slice(0, 20);
                       label += slice;
 
-                      if (slice.length < value.length) {
+                      if (slice.length < text.length) {
                         label += "...";
                       }
                       return label;
                     }
+                    return "";
                   }}
                 />
                 {/* <LabelList
